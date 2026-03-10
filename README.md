@@ -1,5 +1,24 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Where code changes are saved
+
+Changes made by Codex in this session are saved in the current git repository/workspace only. They are **not** automatically synced to your personal Mac or laptop.
+
+To move updates between devices, push to GitHub from the machine/environment that contains the commits, then clone/pull on the other device.
+
+```bash
+git remote -v
+git push -u origin <branch-name>
+```
+
+Then on another machine:
+
+```bash
+git clone <repo-url>
+# or, if already cloned
+git pull
+```
+
 ## Getting Started
 
 First, run the development server:
