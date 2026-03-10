@@ -1,28 +1,44 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
+import { getAllPosts } from "@/data/blog";
+import { caseStudies } from "@/data/caseStudies";
+import { servicePages } from "@/data/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.blackwelladvisory.co.uk";
   const lastModified = new Date();
 
-  return [
-    { url: base, lastModified, changeFrequency: "monthly", priority: 1 },
-    {
-      url: `${base}/services`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${base}/about`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${base}/contact`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-  ];
+  const staticRoutes = [
+    "",
+    "/services",
+    "/about",
+    "/contact",
+    "/blog",
+    "/case-studies",
+    "/risk-calculator",
+    "/privacy-policy",
+    "/terms-and-conditions",
+    "/cookie-policy",
+    ...servicePages.map((service) => `/${service.slug}`),
+  ].map((path) => ({
+    url: `${SITE_URL}${path}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: path === "" ? 1 : 0.8,
+  }));
+
+  const blogRoutes = getAllPosts().map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  const caseStudyRoutes = caseStudies.map((study) => ({
+    url: `${SITE_URL}/case-studies/${study.slug}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...blogRoutes, ...caseStudyRoutes];
 }

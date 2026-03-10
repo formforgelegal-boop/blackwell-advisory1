@@ -20,6 +20,7 @@ type FormData = {
   whyNow: string;
   preferredContact: string;
   howHeard: string;
+  website?: string;
 };
 
 const TOTAL_STEPS = 12;
@@ -35,6 +36,7 @@ export default function MultiStepForm() {
     handleSubmit,
     trigger,
     getValues,
+    setValue,
     formState: { errors },
   } = useForm<FormData>({ mode: "onBlur" });
 
@@ -79,20 +81,33 @@ export default function MultiStepForm() {
     if (valid) setStep((s) => s + 1);
   };
 
+
+  const setOptionAndContinue = async (
+    field: keyof FormData,
+    value: string
+  ) => {
+    setValue(field, value, { shouldDirty: true, shouldValidate: true });
+    await nextStep();
+  };
+
   const onSubmit = async (data: FormData) => {
     setSubmitting(true);
     setSubmitError("");
     try {
-      const res = await fetch("https://formspree.io/f/xwvnzory", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
       if (res.ok) {
         setSubmitted(true);
       } else {
+        const payload = (await res.json().catch(() => null)) as
+          | { error?: string }
+          | null;
         setSubmitError(
-          "Something went wrong. Please email us at reach@blackwelladvisory.co.uk"
+          payload?.error ||
+            "Something went wrong. Please email us at reach@blackwelladvisory.co.uk"
         );
       }
     } catch {
@@ -143,6 +158,7 @@ export default function MultiStepForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <input type="text" className="hidden" tabIndex={-1} autoComplete="off" {...register("website")} />
       {/* Progress bar */}
       <div className="h-1 bg-muted rounded-full mb-8 overflow-hidden">
         <div
@@ -265,14 +281,7 @@ export default function MultiStepForm() {
                 type="button"
                 className={optionBtn}
                 onClick={async () => {
-                  const el = document.querySelector<HTMLInputElement>(
-                    'input[name="employees"]'
-                  );
-                  if (el) {
-                    el.value = opt;
-                    el.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                  await nextStep();
+                  await setOptionAndContinue("employees", opt);
                 }}
               >
                 {opt}
@@ -305,14 +314,7 @@ export default function MultiStepForm() {
                 type="button"
                 className={optionBtn}
                 onClick={async () => {
-                  const el = document.querySelector<HTMLInputElement>(
-                    'input[name="writtenContracts"]'
-                  );
-                  if (el) {
-                    el.value = opt;
-                    el.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                  await nextStep();
+                  await setOptionAndContinue("writtenContracts", opt);
                 }}
               >
                 {opt}
@@ -347,14 +349,7 @@ export default function MultiStepForm() {
                 type="button"
                 className={optionBtn}
                 onClick={async () => {
-                  const el = document.querySelector<HTMLInputElement>(
-                    'input[name="lastReviewed"]'
-                  );
-                  if (el) {
-                    el.value = opt;
-                    el.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                  await nextStep();
+                  await setOptionAndContinue("lastReviewed", opt);
                 }}
               >
                 {opt}
@@ -384,14 +379,7 @@ export default function MultiStepForm() {
                 type="button"
                 className={optionBtn}
                 onClick={async () => {
-                  const el = document.querySelector<HTMLInputElement>(
-                    'input[name="tribunalClaims"]'
-                  );
-                  if (el) {
-                    el.value = opt;
-                    el.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                  await nextStep();
+                  await setOptionAndContinue("tribunalClaims", opt);
                 }}
               >
                 {opt}
@@ -421,14 +409,7 @@ export default function MultiStepForm() {
                 type="button"
                 className={optionBtn}
                 onClick={async () => {
-                  const el = document.querySelector<HTMLInputElement>(
-                    'input[name="contractors"]'
-                  );
-                  if (el) {
-                    el.value = opt;
-                    el.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                  await nextStep();
+                  await setOptionAndContinue("contractors", opt);
                 }}
               >
                 {opt}
@@ -459,14 +440,7 @@ export default function MultiStepForm() {
                 type="button"
                 className={optionBtn}
                 onClick={async () => {
-                  const el = document.querySelector<HTMLInputElement>(
-                    'input[name="commissionBonuses"]'
-                  );
-                  if (el) {
-                    el.value = opt;
-                    el.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                  await nextStep();
+                  await setOptionAndContinue("commissionBonuses", opt);
                 }}
               >
                 {opt}
@@ -499,14 +473,7 @@ export default function MultiStepForm() {
                 type="button"
                 className={optionBtn}
                 onClick={async () => {
-                  const el = document.querySelector<HTMLInputElement>(
-                    'input[name="restrictiveCovenants"]'
-                  );
-                  if (el) {
-                    el.value = opt;
-                    el.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                  await nextStep();
+                  await setOptionAndContinue("restrictiveCovenants", opt);
                 }}
               >
                 {opt}
@@ -537,14 +504,7 @@ export default function MultiStepForm() {
                 type="button"
                 className={optionBtn}
                 onClick={async () => {
-                  const el = document.querySelector<HTMLInputElement>(
-                    'input[name="policiesIncorporated"]'
-                  );
-                  if (el) {
-                    el.value = opt;
-                    el.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                  await nextStep();
+                  await setOptionAndContinue("policiesIncorporated", opt);
                 }}
               >
                 {opt}
@@ -591,14 +551,7 @@ export default function MultiStepForm() {
                 type="button"
                 className={optionBtn}
                 onClick={async () => {
-                  const el = document.querySelector<HTMLInputElement>(
-                    'input[name="preferredContact"]'
-                  );
-                  if (el) {
-                    el.value = opt;
-                    el.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                  await nextStep();
+                  await setOptionAndContinue("preferredContact", opt);
                 }}
               >
                 {opt}
