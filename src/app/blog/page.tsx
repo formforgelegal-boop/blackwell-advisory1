@@ -14,54 +14,41 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/blog` },
 };
 
-export default async function BlogPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ page?: string }>;
-}) {
+export default async function BlogPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const params = await searchParams;
   const page = Number(params.page ?? "1");
   const posts = getAllPosts();
   const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
   const safePage = Number.isNaN(page) ? 1 : Math.min(Math.max(page, 1), totalPages);
-  const sliceStart = (safePage - 1) * PAGE_SIZE;
-  const pagePosts = posts.slice(sliceStart, sliceStart + PAGE_SIZE);
+  const pagePosts = posts.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
   return (
-    <section className="bg-white pt-24 pb-20">
-      <div className="max-w-[1100px] mx-auto px-6">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
-        <div className="flex flex-wrap gap-3 mb-8">
+    <section className="pt-28 pb-24">
+      <div className="mx-auto max-w-[1180px] px-6">
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Insights" }]} />
+        <h1 className="mb-6 font-serif text-5xl text-ink">Latest Insights</h1>
+        <div className="mb-10 flex flex-wrap gap-2">
           {Object.entries(categoryLabels).map(([slug, label]) => (
-            <Link key={slug} href={`/blog/category/${slug}`} className="text-sm border border-muted rounded-full px-4 py-1.5 hover:border-gold hover:text-gold transition-colors">
+            <Link key={slug} href={`/blog/category/${slug}`} className="border border-line px-4 py-1.5 text-xs uppercase tracking-[0.12em] text-ink/70 hover:text-ink">
               {label}
             </Link>
           ))}
         </div>
-        <div className="grid lg:grid-cols-[1fr_320px] gap-10 items-start">
+        <div className="grid items-start gap-12 lg:grid-cols-[1fr_320px]">
           <div className="space-y-5">
-            <h1 className="font-serif text-4xl font-bold text-navy mb-8">Knowledge Hub</h1>
-            {pagePosts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
-            <nav className="flex gap-3 pt-4" aria-label="Pagination">
+            {pagePosts.map((post) => <BlogCard key={post.slug} post={post} />)}
+            <nav className="flex gap-2 pt-4" aria-label="Pagination">
               {Array.from({ length: totalPages }).map((_, index) => {
                 const p = index + 1;
                 return (
-                  <Link
-                    key={p}
-                    href={p === 1 ? "/blog" : `/blog?page=${p}`}
-                    className={`px-3 py-1.5 rounded border ${p === safePage ? "bg-navy text-white border-navy" : "border-muted hover:border-gold"}`}
-                  >
+                  <Link key={p} href={p === 1 ? "/blog" : `/blog?page=${p}`} className={`border px-3 py-1 text-sm ${p === safePage ? "border-ink bg-ink text-white" : "border-line text-ink/70 hover:text-ink"}`}>
                     {p}
                   </Link>
                 );
               })}
             </nav>
           </div>
-          <div className="lg:sticky lg:top-24">
-            <EmailCapture source="blog-index" />
-          </div>
+          <div className="lg:sticky lg:top-24"><EmailCapture source="blog-index" /></div>
         </div>
       </div>
     </section>

@@ -13,23 +13,21 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesPage() {
   return (
-    <section className="bg-white pt-24 pb-20">
-      <div className="max-w-[1100px] mx-auto px-6">
+    <section className="pt-28 pb-24">
+      <div className="mx-auto max-w-[1180px] px-6">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Case Studies" }]} />
-        <h1 className="font-serif text-4xl font-bold text-navy mb-10">Case Studies</h1>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+        <h1 className="font-serif text-5xl text-ink">Case Studies</h1>
+        <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {caseStudies.map((item) => (
-            <article key={item.slug} className="border border-muted rounded-xl p-6">
-              <p className="text-xs uppercase tracking-widest text-navy/50 mb-2">{item.clientType}</p>
-              <h2 className="font-serif text-2xl font-bold text-navy mb-3">{item.title}</h2>
-              <p className="text-navy/70 mb-5">{item.problem}</p>
-              <Link href={`/case-studies/${item.slug}`} className="text-sm font-semibold text-navy hover:text-gold">
-                Read case study →
-              </Link>
+            <article key={item.slug} className="border-t border-line pt-6">
+              <p className="mb-2 text-xs uppercase tracking-[0.12em] text-ink/50">{item.clientType}</p>
+              <h2 className="font-serif text-3xl text-ink">{item.title}</h2>
+              <p className="mt-3 text-ink/70">{item.problem}</p>
+              <Link href={`/case-studies/${item.slug}`} className="mt-4 inline-block text-sm text-ink/70 hover:text-ink">Read case study →</Link>
             </article>
           ))}
         </div>
-        <PrimaryCTA title="Want similar risk reduction outcomes?" description="Book a discovery call and we’ll map practical next steps for your team." />
+        <div className="mt-16"><PrimaryCTA title="Looking for similar outcomes?" description="Book a discovery call and we will map practical next steps for your team." /></div>
       </div>
     </section>
   );
