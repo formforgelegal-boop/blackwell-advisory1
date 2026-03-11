@@ -10,17 +10,17 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <section className="bg-white pt-24 pb-20">
-      <div className="max-w-[1100px] mx-auto px-6">
+    <section className="pt-28 pb-24">
+      <div className="mx-auto max-w-[1180px] px-6">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Services" }]} />
-        <h1 className="font-serif text-4xl font-bold text-navy mb-4">Services</h1>
-        <p className="text-navy/70 max-w-2xl mb-10">Focused support for tribunal prevention, HR compliance, workplace disputes, and redundancy process risk.</p>
-        <div className="grid md:grid-cols-2 gap-6">
+        <h1 className="font-serif text-5xl text-ink">Services</h1>
+        <p className="mt-4 max-w-2xl text-ink/70">Focused support for tribunal prevention, HR compliance, workplace disputes and redundancy process risk.</p>
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
           {servicePages.map((service) => (
-            <article key={service.slug} className="border border-muted rounded-xl p-6">
-              <h2 className="font-serif text-2xl font-bold text-navy mb-2">{service.title}</h2>
-              <p className="text-navy/70 mb-4">{service.hero}</p>
-              <Link href={`/${service.slug}`} className="text-sm font-semibold text-navy hover:text-gold">View service →</Link>
+            <article key={service.slug} className="border-t border-line pt-6">
+              <h2 className="font-serif text-3xl text-ink">{service.title}</h2>
+              <p className="mt-3 text-ink/70">{service.hero}</p>
+              <Link href={`/${service.slug}`} className="mt-4 inline-block text-sm text-ink/70 hover:text-ink">View service →</Link>
             </article>
           ))}
         </div>
