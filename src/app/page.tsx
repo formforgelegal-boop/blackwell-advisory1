@@ -37,7 +37,6 @@ export default function HomePage() {
         <div className="relative z-10 mx-auto w-full max-w-[1180px] px-6 pb-24 pt-32 md:pt-36 lg:pt-40">
           <div className="max-w-3xl">
             <p className="mb-6 text-xs uppercase tracking-[0.18em] text-white/74">
-=======
       <section className="relative isolate flex min-h-[80vh] items-center overflow-hidden bg-[#121820]">
         <Image
           src={heroImage}
@@ -56,7 +55,9 @@ export default function HomePage() {
             <h1 className="font-serif text-5xl leading-[1.05] text-white md:text-7xl">
               Clarity on employment risk, before it becomes cost.
             </h1>
+            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white/84">
             <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white/85">
+
               We advise UK SMEs on contract, compliance and workforce risk with
               a measured, practical approach designed to prevent disputes and
               protect leadership focus.

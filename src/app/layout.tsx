@@ -1,22 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileCTA from "@/components/MobileCTA";
 import Script from "next/script";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.blackwelladvisory.co.uk"),
@@ -55,9 +42,7 @@ export default function RootLayout({
 
   return (
     <html lang="en-GB">
-      <body
-        className={`${inter.variable} ${playfair.variable} antialiased font-sans`}
-      >
+      <body className="antialiased font-sans">
         <Navbar />
         <main className="pb-20 md:pb-0">{children}</main>
         <Footer />
