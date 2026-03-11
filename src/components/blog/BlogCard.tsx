@@ -5,14 +5,14 @@ import { categoryLabels } from "@/data/blog";
 
 export default function BlogCard({ post }: { post: BlogPost }) {
   return (
-    <article className="overflow-hidden rounded-md border border-line bg-white">
+    <article className="group overflow-hidden rounded-md border border-line bg-white transition-colors duration-200 hover:border-ink/25">
       <div className="relative aspect-[16/9]">
         <Image
           src={post.featuredImage}
           alt={post.title}
           fill
           sizes="(max-width: 1024px) 100vw, 65vw"
-          className="object-cover"
+          className="object-cover transition-transform duration-300 group-hover:scale-[1.01]"
         />
       </div>
       <div className="p-6">

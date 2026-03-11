@@ -2,8 +2,8 @@ export const SITE_URL = "https://www.blackwelladvisory.co.uk";
 
 export const COMPANY_DETAILS = {
   name: "Blackwell Advisory",
-  registeredOffice: "[Registered office address to be added]",
-  companyNumber: "[Company number to be added]",
+  registeredOffice: "Advantage House, Stowe Court, WS13 6AQ",
+  companyNumber: "17067535",
   icoRegistration: "[ICO registration to be added]",
   email: "reach@blackwelladvisory.co.uk",
 };

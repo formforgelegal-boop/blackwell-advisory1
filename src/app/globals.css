@@ -5,11 +5,8 @@
   --color-accent: #20344f;
   --color-stone: #f5f4f1;
   --color-line: #d8dce2;
-}
-
-@theme inline {
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+  --font-sans: "Inter", "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Iowan Old Style", "Baskerville", "Times New Roman", serif;
 }
 
 html {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
+import { COMPANY_DETAILS } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Privacy Policy" };
 
@@ -13,6 +14,9 @@ export default function PrivacyPolicyPage() {
           <p>This placeholder policy should be replaced with your final legal text.</p>
           <p>We collect enquiry and form details to respond to requests and provide advisory services.</p>
           <p>Lawful basis, retention schedules, and processor lists should be confirmed by your legal/data protection advisor before publication.</p>
+          <p className="pt-4 text-xs text-ink/55">
+            Registered office: {COMPANY_DETAILS.registeredOffice} · Company number: {COMPANY_DETAILS.companyNumber}
+          </p>
         </div>
       </div>
     </section>
