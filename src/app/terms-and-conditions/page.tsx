@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
+import { COMPANY_DETAILS } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Terms and Conditions" };
 
@@ -13,6 +14,9 @@ export default function TermsPage() {
           <p>This placeholder should be replaced with formal terms reviewed by your legal advisor.</p>
           <p>Blackwell Advisory provides commercial advisory services and does not provide regulated legal representation.</p>
           <p>Scope, liability, and fee terms should be finalised in engagement documents.</p>
+          <p className="pt-4 text-xs text-ink/55">
+            Registered office: {COMPANY_DETAILS.registeredOffice} · Company number: {COMPANY_DETAILS.companyNumber}
+          </p>
         </div>
       </div>
     </section>

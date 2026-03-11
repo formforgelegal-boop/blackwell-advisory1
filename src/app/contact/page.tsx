@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import MultiStepForm from "@/components/MultiStepForm";
+import { COMPANY_DETAILS } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Book a Discovery Call",
@@ -23,13 +24,19 @@ export default function ContactPage() {
             <MultiStepForm />
             <p className="mt-6 border-t border-line pt-6 text-sm text-ink/60">Prefer email? <a href="mailto:reach@blackwelladvisory.co.uk" className="text-ink hover:text-accent">reach@blackwelladvisory.co.uk</a></p>
           </div>
-          <aside className="h-fit border border-line bg-stone p-8 lg:sticky lg:top-24">
-            <h2 className="font-serif text-2xl text-ink">What to expect</h2>
-            <ol className="mt-6 space-y-5 text-sm text-ink/70">
-              <li><span className="mr-2 text-ink">01</span>Submit your details and current priorities.</li>
-              <li><span className="mr-2 text-ink">02</span>We confirm a suitable time within one business day.</li>
-              <li><span className="mr-2 text-ink">03</span>You get a direct recommendation on next steps.</li>
-            </ol>
+          <aside className="h-fit space-y-6 border border-line bg-stone p-8 lg:sticky lg:top-24">
+            <div>
+              <h2 className="font-serif text-2xl text-ink">What to expect</h2>
+              <ol className="mt-6 space-y-5 text-sm text-ink/70">
+                <li><span className="mr-2 text-ink">01</span>Submit your details and current priorities.</li>
+                <li><span className="mr-2 text-ink">02</span>We confirm a suitable time within one business day.</li>
+                <li><span className="mr-2 text-ink">03</span>You get a direct recommendation on next steps.</li>
+              </ol>
+            </div>
+            <div className="border-t border-line pt-6 text-xs leading-relaxed text-ink/60">
+              <p>Registered office: {COMPANY_DETAILS.registeredOffice}</p>
+              <p>Company number: {COMPANY_DETAILS.companyNumber}</p>
+            </div>
           </aside>
         </div>
       </section>
