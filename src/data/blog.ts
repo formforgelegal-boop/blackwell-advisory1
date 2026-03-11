@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-01-15",
     category: "employment-tribunal-risk",
     readingTime: "8 min read",
-    featuredImage: "/globe.svg",
+    featuredImage: "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=1400&q=80",
     metaDescription: "Learn the UK employment tribunal process for SMEs and how to reduce legal cost, management time, and claim exposure.",
     relatedServices: ["/employment-tribunal-prevention", "/workplace-dispute-advisory"],
     sections: [
@@ -60,7 +60,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-01-23",
     category: "redundancy-and-dismissal-procedures",
     readingTime: "7 min read",
-    featuredImage: "/window.svg",
+    featuredImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=80",
     metaDescription: "Reduce unfair dismissal claim risk with practical dismissal process controls for UK employers.",
     relatedServices: ["/redundancy-procedure-advice", "/employment-tribunal-prevention"],
     sections: [
@@ -77,7 +77,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-02-02",
     category: "employment-tribunal-risk",
     readingTime: "6 min read",
-    featuredImage: "/file.svg",
+    featuredImage: "https://images.unsplash.com/photo-1450101215322-bf5cd27642fc?auto=format&fit=crop&w=1400&q=80",
     metaDescription: "Understand the likely cost of UK employment tribunal claims for employers and what drives settlement pressure.",
     relatedServices: ["/employment-tribunal-prevention"],
     sections: [
@@ -94,7 +94,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-02-11",
     category: "hr-compliance-for-smes",
     readingTime: "9 min read",
-    featuredImage: "/next.svg",
+    featuredImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80",
     metaDescription: "Use this SME HR compliance checklist to strengthen contracts, policies, and risk controls.",
     relatedServices: ["/hr-compliance-review"],
     sections: [
@@ -114,7 +114,7 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-02-20",
     category: "workplace-disputes",
     readingTime: "7 min read",
-    featuredImage: "/vercel.svg",
+    featuredImage: "https://images.unsplash.com/photo-1453945619913-79ec89a82c51?auto=format&fit=crop&w=1400&q=80",
     metaDescription: "Find out which HR and employment documents UK employers need to reduce tribunal risk.",
     relatedServices: ["/workplace-dispute-advisory", "/hr-compliance-review"],
     sections: [
