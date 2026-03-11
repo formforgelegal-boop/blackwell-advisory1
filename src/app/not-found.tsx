@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="bg-navy min-h-screen pt-16 flex items-center">
+    <section className="bg-accent min-h-screen pt-16 flex items-center">
       <div className="max-w-[1100px] mx-auto px-6 py-24 text-center">
-        <p className="text-gold font-serif text-8xl font-bold mb-6 leading-none">
+        <p className="text-accent font-serif text-8xl font-bold mb-6 leading-none">
           404
         </p>
         <h1 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">
@@ -17,13 +17,13 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/"
-            className="bg-gold text-navy font-semibold px-8 py-4 rounded text-lg hover:opacity-90 transition-opacity"
+            className="bg-accent text-white font-semibold px-8 py-4 rounded-sm text-lg hover:opacity-90 transition-opacity"
           >
             Go Home
           </Link>
           <Link
             href="/contact"
-            className="border-2 border-white text-white font-semibold px-8 py-4 rounded text-lg hover:bg-white/10 transition-colors"
+            className="border-2 border-white text-white font-semibold px-8 py-4 rounded-sm text-lg hover:bg-white/10 transition-colors"
           >
             Book a Call
           </Link>

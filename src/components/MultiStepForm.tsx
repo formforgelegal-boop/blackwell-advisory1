@@ -121,10 +121,10 @@ export default function MultiStepForm() {
 
   if (submitted) {
     return (
-      <div className="bg-cream rounded-xl border border-muted p-10 text-center max-w-xl mx-auto">
-        <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="bg-stone rounded-sm border border-line p-10 text-center max-w-xl mx-auto">
+        <div className="w-16 h-16 bg-accent/20 rounded-none flex items-center justify-center mx-auto mb-6">
           <svg
-            className="text-gold"
+            className="text-accent"
             width="32"
             height="32"
             viewBox="0 0 24 24"
@@ -136,10 +136,10 @@ export default function MultiStepForm() {
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <h3 className="font-serif text-2xl font-bold text-navy mb-3">
+        <h3 className="font-serif text-2xl font-bold text-ink mb-3">
           Thanks{firstName ? `, ${firstName}` : ""}.
         </h3>
-        <p className="text-navy/65 leading-relaxed">
+        <p className="text-ink/65 leading-relaxed">
           We&apos;ll confirm your discovery call within one business day.
         </p>
       </div>
@@ -147,12 +147,12 @@ export default function MultiStepForm() {
   }
 
   const inputClass =
-    "w-full border border-muted rounded px-4 py-3 text-navy placeholder:text-navy/35 focus:outline-none focus:border-navy/40 focus:ring-2 focus:ring-navy/10 transition-colors";
+    "w-full border border-line rounded-sm px-4 py-3 text-ink placeholder:text-ink/35 focus:outline-none focus:border-accent/40 focus:ring-2 focus:ring-accent/10 transition-colors";
   const errorClass = "text-red-600 text-sm mt-1";
-  const labelClass = "block text-sm font-medium text-navy/70 mb-2";
+  const labelClass = "block text-sm font-medium text-ink/70 mb-2";
   const optionBtnBase =
-    "w-full text-left border rounded px-5 py-4 font-medium transition-colors cursor-pointer";
-  const optionBtn = `${optionBtnBase} border-muted text-navy hover:border-gold/60 hover:bg-gold/5`;
+    "w-full text-left border rounded-sm px-5 py-4 font-medium transition-colors cursor-pointer";
+  const optionBtn = `${optionBtnBase} border-line text-ink hover:border-accent/60 hover:bg-accent/5`;
 
   const progressPct = Math.round((step / TOTAL_STEPS) * 100);
 
@@ -160,9 +160,9 @@ export default function MultiStepForm() {
     <form onSubmit={handleSubmit(onSubmit)} noValidate>
       <input type="text" className="hidden" tabIndex={-1} autoComplete="off" {...register("website")} />
       {/* Progress bar */}
-      <div className="h-1 bg-muted rounded-full mb-8 overflow-hidden">
+      <div className="h-1 bg-line rounded-none mb-8 overflow-hidden">
         <div
-          className="h-full bg-gold transition-all duration-300"
+          className="h-full bg-accent transition-all duration-300"
           style={{ width: `${progressPct}%` }}
           role="progressbar"
           aria-valuenow={progressPct}
@@ -170,20 +170,20 @@ export default function MultiStepForm() {
           aria-valuemax={100}
         />
       </div>
-      <p className="text-navy/40 text-xs mb-6">
+      <p className="text-ink/40 text-xs mb-6">
         Step {step + 1} of {TOTAL_STEPS}
       </p>
 
       {/* ── Step 0: Personal info ─── */}
       {step === 0 && (
         <div className="space-y-5">
-          <h3 className="font-serif text-2xl font-bold text-navy mb-6">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-6">
             Let&apos;s start with your details
           </h3>
           <div className="grid sm:grid-cols-2 gap-5">
             <div>
               <label htmlFor="firstName" className={labelClass}>
-                First name <span className="text-gold">*</span>
+                First name <span className="text-accent">*</span>
               </label>
               <input
                 id="firstName"
@@ -197,7 +197,7 @@ export default function MultiStepForm() {
             </div>
             <div>
               <label htmlFor="lastName" className={labelClass}>
-                Last name <span className="text-gold">*</span>
+                Last name <span className="text-accent">*</span>
               </label>
               <input
                 id="lastName"
@@ -212,7 +212,7 @@ export default function MultiStepForm() {
           </div>
           <div>
             <label htmlFor="company" className={labelClass}>
-              Company name <span className="text-gold">*</span>
+              Company name <span className="text-accent">*</span>
             </label>
             <input
               id="company"
@@ -226,7 +226,7 @@ export default function MultiStepForm() {
           </div>
           <div>
             <label htmlFor="email" className={labelClass}>
-              Email address <span className="text-gold">*</span>
+              Email address <span className="text-accent">*</span>
             </label>
             <input
               id="email"
@@ -247,7 +247,7 @@ export default function MultiStepForm() {
           </div>
           <div>
             <label htmlFor="phone" className={labelClass}>
-              Phone number <span className="text-gold">*</span>
+              Phone number <span className="text-accent">*</span>
             </label>
             <input
               id="phone"
@@ -266,10 +266,10 @@ export default function MultiStepForm() {
       {/* ── Step 1: Employees ─── */}
       {step === 1 && (
         <div>
-          <h3 className="font-serif text-2xl font-bold text-navy mb-2">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             How many employees do you have?
           </h3>
-          <p className="text-navy/50 text-sm mb-8">Select the closest range.</p>
+          <p className="text-ink/50 text-sm mb-8">Select the closest range.</p>
           <input
             type="hidden"
             {...register("employees", { required: "Please select an option" })}
@@ -297,10 +297,10 @@ export default function MultiStepForm() {
       {/* ── Step 2: Written contracts ─── */}
       {step === 2 && (
         <div>
-          <h3 className="font-serif text-2xl font-bold text-navy mb-2">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             Do you use written employment contracts with your staff?
           </h3>
-          <p className="text-navy/50 text-sm mb-8">Select one.</p>
+          <p className="text-ink/50 text-sm mb-8">Select one.</p>
           <input
             type="hidden"
             {...register("writtenContracts", {
@@ -327,10 +327,10 @@ export default function MultiStepForm() {
       {/* ── Step 3: Last reviewed ─── */}
       {step === 3 && (
         <div>
-          <h3 className="font-serif text-2xl font-bold text-navy mb-2">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             When were your contracts last professionally reviewed?
           </h3>
-          <p className="text-navy/50 text-sm mb-8">Select one.</p>
+          <p className="text-ink/50 text-sm mb-8">Select one.</p>
           <input
             type="hidden"
             {...register("lastReviewed", {
@@ -362,10 +362,10 @@ export default function MultiStepForm() {
       {/* ── Step 4: Tribunal claims ─── */}
       {step === 4 && (
         <div>
-          <h3 className="font-serif text-2xl font-bold text-navy mb-2">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             Have you had any tribunal claims or disputes in the past 3 years?
           </h3>
-          <p className="text-navy/50 text-sm mb-8">Select one.</p>
+          <p className="text-ink/50 text-sm mb-8">Select one.</p>
           <input
             type="hidden"
             {...register("tribunalClaims", {
@@ -392,10 +392,10 @@ export default function MultiStepForm() {
       {/* ── Step 5: Contractors ─── */}
       {step === 5 && (
         <div>
-          <h3 className="font-serif text-2xl font-bold text-navy mb-2">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             Do you use contractors or freelancers alongside employees?
           </h3>
-          <p className="text-navy/50 text-sm mb-8">Select one.</p>
+          <p className="text-ink/50 text-sm mb-8">Select one.</p>
           <input
             type="hidden"
             {...register("contractors", {
@@ -422,11 +422,11 @@ export default function MultiStepForm() {
       {/* ── Step 6: Commission/bonuses ─── */}
       {step === 6 && (
         <div>
-          <h3 className="font-serif text-2xl font-bold text-navy mb-2">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             Do any staff have commission, bonuses, or non-standard pay
             structures?
           </h3>
-          <p className="text-navy/50 text-sm mb-8">Select one.</p>
+          <p className="text-ink/50 text-sm mb-8">Select one.</p>
           <input
             type="hidden"
             {...register("commissionBonuses", {
@@ -453,13 +453,13 @@ export default function MultiStepForm() {
       {/* ── Step 7: Restrictive covenants ─── */}
       {step === 7 && (
         <div>
-          <h3 className="font-serif text-2xl font-bold text-navy mb-2">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             Do you have restrictive covenants in your contracts?
           </h3>
-          <p className="text-navy/50 text-sm mb-2">
+          <p className="text-ink/50 text-sm mb-2">
             Non-compete or non-solicit clauses.
           </p>
-          <p className="text-navy/40 text-sm mb-8">Select one.</p>
+          <p className="text-ink/40 text-sm mb-8">Select one.</p>
           <input
             type="hidden"
             {...register("restrictiveCovenants", {
@@ -486,11 +486,11 @@ export default function MultiStepForm() {
       {/* ── Step 8: Policies incorporated ─── */}
       {step === 8 && (
         <div>
-          <h3 className="font-serif text-2xl font-bold text-navy mb-2">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             Are your employment policies referenced or incorporated into your
             contracts?
           </h3>
-          <p className="text-navy/50 text-sm mb-8">Select one.</p>
+          <p className="text-ink/50 text-sm mb-8">Select one.</p>
           <input
             type="hidden"
             {...register("policiesIncorporated", {
@@ -517,10 +517,10 @@ export default function MultiStepForm() {
       {/* ── Step 9: Why now (optional) ─── */}
       {step === 9 && (
         <div>
-          <h3 className="font-serif text-2xl font-bold text-navy mb-2">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             What is prompting you to look at this now?
           </h3>
-          <p className="text-navy/50 text-sm mb-8">
+          <p className="text-ink/50 text-sm mb-8">
             Optional — share as much or as little as you like.
           </p>
           <textarea
@@ -534,10 +534,10 @@ export default function MultiStepForm() {
       {/* ── Step 10: Preferred contact ─── */}
       {step === 10 && (
         <div>
-          <h3 className="font-serif text-2xl font-bold text-navy mb-2">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             How would you prefer we contact you?
           </h3>
-          <p className="text-navy/50 text-sm mb-8">Select one.</p>
+          <p className="text-ink/50 text-sm mb-8">Select one.</p>
           <input
             type="hidden"
             {...register("preferredContact", {
@@ -564,7 +564,7 @@ export default function MultiStepForm() {
       {/* ── Step 11: How did you hear + submit ─── */}
       {step === 11 && (
         <div className="space-y-6">
-          <h3 className="font-serif text-2xl font-bold text-navy mb-6">
+          <h3 className="font-serif text-2xl font-bold text-ink mb-6">
             One last thing — how did you hear about us?
           </h3>
           <div>
@@ -592,7 +592,7 @@ export default function MultiStepForm() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full bg-gold text-navy font-semibold py-4 rounded text-lg hover:opacity-90 transition-opacity disabled:opacity-60"
+            className="w-full bg-accent text-white font-semibold py-4 rounded-sm text-lg hover:opacity-90 transition-opacity disabled:opacity-60"
           >
             {submitting ? "Submitting…" : "Submit"}
           </button>
@@ -606,7 +606,7 @@ export default function MultiStepForm() {
             <button
               type="button"
               onClick={nextStep}
-              className="w-full bg-navy text-white font-semibold py-4 rounded text-lg hover:opacity-90 transition-opacity"
+              className="w-full bg-accent text-white font-semibold py-4 rounded-sm text-lg hover:opacity-90 transition-opacity"
             >
               Continue
             </button>
@@ -618,7 +618,7 @@ export default function MultiStepForm() {
         <button
           type="button"
           onClick={() => setStep((s) => s - 1)}
-          className="mt-4 text-sm text-navy/45 hover:text-navy transition-colors w-full text-center"
+          className="mt-4 text-sm text-ink/45 hover:text-ink transition-colors w-full text-center"
         >
           ← Back
         </button>

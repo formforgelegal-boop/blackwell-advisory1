@@ -1,20 +1,17 @@
 import Link from "next/link";
 
 export default function PrimaryCTA({
-  title = "Ready to reduce employment risk?",
-  description = "Book a free discovery call and get a practical view of your current exposure.",
+  title = "Need a clear view of your current employment risk?",
+  description = "Book a short discovery call and we will outline practical next steps.",
 }: {
   title?: string;
   description?: string;
 }) {
   return (
-    <section className="bg-navy rounded-xl p-8 md:p-10 text-center text-white">
-      <h2 className="font-serif text-3xl font-bold mb-3">{title}</h2>
-      <p className="text-white/70 mb-8 max-w-2xl mx-auto">{description}</p>
-      <Link
-        href="/contact"
-        className="inline-block bg-gold text-navy font-semibold px-8 py-3 rounded hover:opacity-90 transition-opacity"
-      >
+    <section className="border border-line bg-stone p-8 md:p-10">
+      <h2 className="font-serif text-3xl text-ink">{title}</h2>
+      <p className="mt-3 max-w-2xl text-ink/70">{description}</p>
+      <Link href="/contact" className="mt-6 inline-block bg-accent px-6 py-3 text-sm text-white hover:opacity-90">
         Book a Discovery Call
       </Link>
     </section>
