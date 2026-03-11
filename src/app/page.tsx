@@ -24,16 +24,25 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="bg-white pt-28 pb-24">
-        <div className="mx-auto grid max-w-[1180px] gap-10 px-6 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-7">
-            <p className="mb-6 text-xs uppercase tracking-[0.18em] text-ink/55">
+      <section className="relative isolate flex min-h-[80vh] items-center overflow-hidden bg-[#121820]">
+        <Image
+          src={heroImage}
+          alt="Modern office interior with an editorial feel"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center md:object-[center_35%]"
+        />
+        <div className="absolute inset-0 bg-[#0d1117]/55" aria-hidden="true" />
+        <div className="relative z-10 mx-auto w-full max-w-[1180px] px-6 pb-20 pt-32 md:pt-36 lg:pt-40">
+          <div className="max-w-3xl">
+            <p className="mb-6 text-xs uppercase tracking-[0.18em] text-white/75">
               Blackwell Advisory · Employment Risk Advisory
             </p>
-            <h1 className="max-w-4xl font-serif text-5xl leading-[1.05] text-ink md:text-7xl">
+            <h1 className="font-serif text-5xl leading-[1.05] text-white md:text-7xl">
               Clarity on employment risk, before it becomes cost.
             </h1>
-            <p className="mt-8 max-w-xl text-xl leading-relaxed text-ink/72">
+            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white/85">
               We advise UK SMEs on contract, compliance and workforce risk with
               a measured, practical approach designed to prevent disputes and
               protect leadership focus.
@@ -47,34 +56,11 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/services"
-                className="rounded-md border border-line px-8 py-3.5 text-sm text-ink transition-colors duration-200 hover:border-ink/35"
+                className="rounded-md border border-white/55 bg-white/5 px-8 py-3.5 text-sm text-white transition-colors duration-200 hover:border-white/80 hover:bg-white/10"
               >
                 Explore Services
               </Link>
             </div>
-          </div>
-
-          <div className="space-y-6 lg:col-span-5">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-md border border-line">
-              <Image
-                src={heroImage}
-                alt="Modern office interior with an editorial feel"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
-              />
-            </div>
-            <aside className="rounded-md border border-line bg-stone p-8 md:p-10">
-              <p className="text-[11px] uppercase tracking-[0.18em] text-ink/50">
-                Approach
-              </p>
-              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-ink/75">
-                <li>Fixed-scope engagements with clear outputs.</li>
-                <li>Commercial recommendations, not legal theatre.</li>
-                <li>Built for owner-managed and scaling UK businesses.</li>
-              </ul>
-            </aside>
           </div>
         </div>
       </section>
