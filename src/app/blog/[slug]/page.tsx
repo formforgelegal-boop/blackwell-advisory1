@@ -69,17 +69,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog" }, { label: post.title }]} />
         <div className="grid lg:grid-cols-[1fr_300px] gap-10 items-start">
           <div>
-            <p className="text-xs uppercase tracking-widest text-ink/50 mb-3">{categoryLabels[post.category]}</p>
-            <h1 className="font-serif text-4xl font-bold text-ink mb-3">{post.title}</h1>
-            <p className="text-sm text-ink/50 mb-8">{new Date(post.publishedAt).toLocaleDateString("en-GB")} · {post.readingTime} · By {post.author}</p>
+            <p className="text-xs uppercase tracking-widest text-navy/50 mb-3">{categoryLabels[post.category]}</p>
+            <h1 className="font-serif text-4xl font-bold text-navy mb-3">{post.title}</h1>
+            <p className="text-sm text-navy/50 mb-8">{new Date(post.publishedAt).toLocaleDateString("en-GB")} · {post.readingTime} · By {post.author}</p>
 
             <div className="space-y-8">
               {post.sections.map((section) => (
                 <section id={section.id} key={section.id}>
-                  <h2 className="font-serif text-2xl font-bold text-ink mb-3 scroll-mt-24">
-                    <a href={`#${section.id}`} className="hover:text-accent transition-colors">{section.heading}</a>
+                  <h2 className="font-serif text-2xl font-bold text-navy mb-3 scroll-mt-24">
+                    <a href={`#${section.id}`} className="hover:text-gold transition-colors">{section.heading}</a>
                   </h2>
-                  <div className="space-y-3 text-ink/75">
+                  <div className="space-y-3 text-navy/75">
                     {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                     {section.bullets && (
                       <ul className="list-disc pl-6 space-y-1">
@@ -98,20 +98,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {post.faqs && <FAQSection faqs={post.faqs} />}
 
             <section className="mt-12">
-              <h2 className="font-serif text-3xl font-bold text-ink mb-5">Related articles</h2>
+              <h2 className="font-serif text-3xl font-bold text-navy mb-5">Related articles</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {relatedPosts.map((related) => (
-                  <Link key={related.slug} href={`/blog/${related.slug}`} className="border border-line rounded-sm p-4 hover:border-accent transition-colors">
-                    <h3 className="font-semibold text-ink mb-1">{related.title}</h3>
-                    <p className="text-sm text-ink/65">{related.excerpt}</p>
+                  <Link key={related.slug} href={`/blog/${related.slug}`} className="border border-muted rounded-lg p-4 hover:border-gold transition-colors">
+                    <h3 className="font-semibold text-navy mb-1">{related.title}</h3>
+                    <p className="text-sm text-navy/65">{related.excerpt}</p>
                   </Link>
                 ))}
               </div>
               <div className="mt-6">
-                <h3 className="font-semibold text-ink mb-2">Related services</h3>
+                <h3 className="font-semibold text-navy mb-2">Related services</h3>
                 <div className="flex flex-wrap gap-2">
                   {post.relatedServices.map((service) => (
-                    <Link key={service} href={service} className="text-sm border border-line rounded-none px-4 py-1.5 hover:border-accent hover:text-accent">
+                    <Link key={service} href={service} className="text-sm border border-muted rounded-full px-4 py-1.5 hover:border-gold hover:text-gold">
                       {service.replaceAll("/", "").replaceAll("-", " ")}
                     </Link>
                   ))}

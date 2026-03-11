@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #1a1e24;
-  --color-accent: #20344f;
-  --color-stone: #f5f4f1;
-  --color-line: #d8dce2;
+  --color-navy: #1a2332;
+  --color-gold: #c9a84c;
+  --color-cream: #f5f5f3;
+  --color-muted: #e2e2de;
 }
 
 @theme inline {
@@ -17,16 +17,7 @@ html {
 }
 
 body {
-  color: #1a1e24;
-  background: #fbfaf8;
+  color: #1a2332;
   font-size: 16px;
-  line-height: 1.75;
-  letter-spacing: -0.01em;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  letter-spacing: -0.03em;
+  line-height: 1.7;
 }

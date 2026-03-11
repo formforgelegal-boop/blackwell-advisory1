@@ -9,7 +9,7 @@ export default function CookiePolicyPage() {
       <div className="max-w-[860px] mx-auto px-6">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Cookie Policy" }]} />
         <h1 className="font-serif text-4xl font-bold mb-6">Cookie Policy</h1>
-        <div className="space-y-4 text-ink/75">
+        <div className="space-y-4 text-navy/75">
           <p>This placeholder cookie policy should be updated once analytics and tracking tools are finalised.</p>
           <p>Document the cookie categories used, legal basis, retention period, and opt-out mechanisms.</p>
         </div>

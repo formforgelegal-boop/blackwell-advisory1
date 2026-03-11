@@ -4,13 +4,15 @@ import { categoryLabels } from "@/data/blog";
 
 export default function BlogCard({ post }: { post: BlogPost }) {
   return (
-    <article className="border-t border-line pt-6">
-      <p className="mb-3 text-xs uppercase tracking-[0.14em] text-ink/50">{categoryLabels[post.category]}</p>
-      <h2 className="mb-2 font-serif text-3xl text-ink">
-        <Link href={`/blog/${post.slug}`} className="hover:text-accent">{post.title}</Link>
+    <article className="border border-muted rounded-xl p-6 bg-white">
+      <p className="text-xs uppercase tracking-widest text-navy/50 mb-3">{categoryLabels[post.category]}</p>
+      <h2 className="font-serif text-2xl font-bold text-navy mb-2">
+        <Link href={`/blog/${post.slug}`} className="hover:text-gold transition-colors">
+          {post.title}
+        </Link>
       </h2>
-      <p className="mb-3 text-ink/70">{post.excerpt}</p>
-      <p className="text-xs text-ink/50">{new Date(post.publishedAt).toLocaleDateString("en-GB")} · {post.readingTime}</p>
+      <p className="text-navy/70 mb-4">{post.excerpt}</p>
+      <p className="text-sm text-navy/50">{new Date(post.publishedAt).toLocaleDateString("en-GB")} · {post.readingTime}</p>
     </article>
   );
 }

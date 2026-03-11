@@ -28,25 +28,25 @@ export default function EmailCapture({ source }: { source: string }) {
   };
 
   return (
-    <aside className="border border-line bg-stone p-6">
-      <p className="mb-2 text-xs uppercase tracking-[0.14em] text-ink/55">Briefing note</p>
-      <h3 className="mb-2 font-serif text-2xl text-ink">SME Employment Law Survival Guide</h3>
-      <p className="mb-5 text-sm text-ink/70">A concise checklist to reduce preventable tribunal risk.</p>
+    <aside className="bg-cream border border-muted rounded-xl p-6">
+      <p className="text-xs tracking-widest uppercase text-navy/50 mb-2">Free Guide</p>
+      <h3 className="font-serif text-2xl font-bold text-navy mb-2">SME Employment Law Survival Guide</h3>
+      <p className="text-sm text-navy/70 mb-5">Get a practical checklist to reduce preventable tribunal risk.</p>
       <form onSubmit={onSubmit} className="space-y-3">
         <label className="block text-sm">
-          <span className="text-ink/70">Name</span>
-          <input name="name" required className="mt-1 w-full border border-line bg-white px-3 py-2" />
+          <span className="text-navy/70">Name</span>
+          <input name="name" required className="w-full mt-1 border border-muted rounded px-3 py-2" />
         </label>
         <label className="block text-sm">
-          <span className="text-ink/70">Email</span>
-          <input type="email" name="email" required className="mt-1 w-full border border-line bg-white px-3 py-2" />
+          <span className="text-navy/70">Email</span>
+          <input type="email" name="email" required className="w-full mt-1 border border-muted rounded px-3 py-2" />
         </label>
         <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
-        <button className="w-full bg-accent py-2.5 text-sm text-white disabled:opacity-70" disabled={status === "loading"}>
+        <button className="w-full bg-gold text-navy font-semibold rounded py-2.5 disabled:opacity-70" disabled={status === "loading"}>
           {status === "loading" ? "Submitting..." : "Send me the guide"}
         </button>
-        {status === "success" && <p className="text-sm text-green-700">Thanks — we&apos;ll send it shortly.</p>}
-        {status === "error" && <p className="text-sm text-red-700">Couldn&apos;t subscribe right now. Please try again.</p>}
+        {status === "success" && <p className="text-green-700 text-sm">Thanks — we&apos;ll send it shortly.</p>}
+        {status === "error" && <p className="text-red-700 text-sm">Couldn&apos;t subscribe right now. Please try again.</p>}
       </form>
     </aside>
   );

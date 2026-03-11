@@ -77,24 +77,24 @@ export default function RiskCalculatorForm() {
 
   if (status === "done" && result) {
     return (
-      <div className="bg-stone border border-line rounded-sm p-8">
-        <h2 className="font-serif text-3xl font-bold text-ink mb-2">Your Risk Score: {result.score}</h2>
-        <p className="text-sm uppercase tracking-wider text-accent font-semibold mb-3">{result.label} Risk</p>
-        <p className="text-ink/70 mb-7">{result.summary}</p>
-        <a href="/contact" className="inline-block bg-accent text-white font-semibold px-6 py-3 rounded-sm hover:opacity-90">Book a Compliance Review</a>
+      <div className="bg-cream border border-muted rounded-xl p-8">
+        <h2 className="font-serif text-3xl font-bold text-navy mb-2">Your Risk Score: {result.score}</h2>
+        <p className="text-sm uppercase tracking-wider text-gold font-semibold mb-3">{result.label} Risk</p>
+        <p className="text-navy/70 mb-7">{result.summary}</p>
+        <a href="/contact" className="inline-block bg-gold text-navy font-semibold px-6 py-3 rounded hover:opacity-90">Book a Compliance Review</a>
       </div>
     );
   }
 
   return (
-    <div className="bg-white border border-line rounded-sm p-8">
-      <p className="text-xs uppercase tracking-widest text-ink/50 mb-2">Step {Math.min(step + 1, questions.length + 1)} of {questions.length + 1}</p>
+    <div className="bg-white border border-muted rounded-xl p-8">
+      <p className="text-xs uppercase tracking-widest text-navy/50 mb-2">Step {Math.min(step + 1, questions.length + 1)} of {questions.length + 1}</p>
       {step < questions.length ? (
         <div>
-          <h2 className="font-serif text-2xl font-bold text-ink mb-5">{currentQuestion.label}</h2>
+          <h2 className="font-serif text-2xl font-bold text-navy mb-5">{currentQuestion.label}</h2>
           {currentQuestion.type === "text" ? (
             <input
-              className="w-full border border-line rounded-sm px-4 py-3"
+              className="w-full border border-muted rounded px-4 py-3"
               value={answers[currentQuestion.key] ?? ""}
               onChange={(event) => setAnswers((prev) => ({ ...prev, [currentQuestion.key]: event.target.value }))}
             />
@@ -104,7 +104,7 @@ export default function RiskCalculatorForm() {
                 <button
                   key={option}
                   type="button"
-                  className="w-full text-left border border-line rounded-sm px-4 py-3 hover:border-accent"
+                  className="w-full text-left border border-muted rounded px-4 py-3 hover:border-gold"
                   onClick={() => {
                     setAnswers((prev) => ({ ...prev, [currentQuestion.key]: option }));
                     setStep((s) => s + 1);
@@ -119,7 +119,7 @@ export default function RiskCalculatorForm() {
             <button
               type="button"
               onClick={() => setStep((s) => s + 1)}
-              className="mt-5 bg-accent text-white font-semibold px-5 py-2.5 rounded"
+              className="mt-5 bg-navy text-white font-semibold px-5 py-2.5 rounded"
               disabled={!answers[currentQuestion.key]}
             >
               Continue
@@ -128,18 +128,18 @@ export default function RiskCalculatorForm() {
         </div>
       ) : (
         <div className="space-y-3">
-          <h2 className="font-serif text-2xl font-bold text-ink">Where should we send your result summary?</h2>
-          <input placeholder="Full name" className="w-full border border-line rounded-sm px-4 py-3" value={contact.name} onChange={(e) => setContact((p) => ({ ...p, name: e.target.value }))} />
-          <input placeholder="Email" type="email" className="w-full border border-line rounded-sm px-4 py-3" value={contact.email} onChange={(e) => setContact((p) => ({ ...p, email: e.target.value }))} />
-          <input placeholder="Phone (optional)" className="w-full border border-line rounded-sm px-4 py-3" value={contact.phone} onChange={(e) => setContact((p) => ({ ...p, phone: e.target.value }))} />
+          <h2 className="font-serif text-2xl font-bold text-navy">Where should we send your result summary?</h2>
+          <input placeholder="Full name" className="w-full border border-muted rounded px-4 py-3" value={contact.name} onChange={(e) => setContact((p) => ({ ...p, name: e.target.value }))} />
+          <input placeholder="Email" type="email" className="w-full border border-muted rounded px-4 py-3" value={contact.email} onChange={(e) => setContact((p) => ({ ...p, email: e.target.value }))} />
+          <input placeholder="Phone (optional)" className="w-full border border-muted rounded px-4 py-3" value={contact.phone} onChange={(e) => setContact((p) => ({ ...p, phone: e.target.value }))} />
           {status === "error" && <p className="text-red-700 text-sm">Could not submit right now. Please try again.</p>}
-          <button type="button" onClick={() => submit(answers)} disabled={!contact.name || !contact.email || status === "submitting"} className="w-full bg-accent text-white font-semibold px-5 py-3 rounded-sm disabled:opacity-70">
+          <button type="button" onClick={() => submit(answers)} disabled={!contact.name || !contact.email || status === "submitting"} className="w-full bg-gold text-navy font-semibold px-5 py-3 rounded disabled:opacity-70">
             {status === "submitting" ? "Submitting..." : "Show my risk result"}
           </button>
         </div>
       )}
       {step > 0 && step < questions.length + 1 && (
-        <button type="button" className="mt-4 text-sm text-ink/50" onClick={() => setStep((s) => s - 1)}>
+        <button type="button" className="mt-4 text-sm text-navy/50" onClick={() => setStep((s) => s - 1)}>
           ← Back
         </button>
       )}
