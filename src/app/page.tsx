@@ -24,19 +24,6 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative isolate flex min-h-[82vh] items-center overflow-hidden bg-[#121820]">
-        <Image
-          src={heroImage}
-          alt="Editorial architectural skyline with generous negative space"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[64%_center] md:object-[center_42%]"
-        />
-        <div className="absolute inset-0 bg-[#0b1017]/58" aria-hidden="true" />
-        <div className="relative z-10 mx-auto w-full max-w-[1180px] px-6 pb-24 pt-32 md:pt-36 lg:pt-40">
-          <div className="max-w-3xl">
-            <p className="mb-6 text-xs uppercase tracking-[0.18em] text-white/74">
       <section className="relative isolate flex min-h-[80vh] items-center overflow-hidden bg-[#121820]">
         <Image
           src={heroImage}
@@ -55,9 +42,7 @@ export default function HomePage() {
             <h1 className="font-serif text-5xl leading-[1.05] text-white md:text-7xl">
               Clarity on employment risk, before it becomes cost.
             </h1>
-            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white/84">
             <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white/85">
-
               We advise UK SMEs on contract, compliance and workforce risk with
               a measured, practical approach designed to prevent disputes and
               protect leadership focus.
@@ -86,7 +71,10 @@ export default function HomePage() {
             <h2 className="font-serif text-4xl text-ink md:text-5xl">
               Core Services
             </h2>
-            <Link href="/services" className="text-sm text-ink/65 transition-colors hover:text-ink">
+            <Link
+              href="/services"
+              className="text-sm text-ink/65 transition-colors hover:text-ink"
+            >
               All services →
             </Link>
           </div>
@@ -112,18 +100,27 @@ export default function HomePage() {
             <h2 className="font-serif text-4xl text-ink md:text-5xl">
               Latest Insights
             </h2>
-            <Link href="/blog" className="text-sm text-ink/65 transition-colors hover:text-ink">
+            <Link
+              href="/blog"
+              className="text-sm text-ink/65 transition-colors hover:text-ink"
+            >
               Knowledge hub →
             </Link>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             {latest.map((post) => (
-              <article key={post.slug} className="rounded-md border border-line bg-[#fbfaf8] p-8 transition-colors duration-200 hover:border-ink/20 hover:bg-white">
+              <article
+                key={post.slug}
+                className="rounded-md border border-line bg-[#fbfaf8] p-8 transition-colors duration-200 hover:border-ink/20 hover:bg-white"
+              >
                 <p className="text-xs uppercase tracking-[0.14em] text-ink/45">
                   {new Date(post.publishedAt).toLocaleDateString("en-GB")}
                 </p>
                 <h3 className="mt-4 font-serif text-3xl leading-tight text-ink">
-                  <Link href={`/blog/${post.slug}`} className="transition-colors hover:text-accent">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="transition-colors hover:text-accent"
+                  >
                     {post.title}
                   </Link>
                 </h3>
