@@ -10,6 +10,11 @@ export type ServicePage = {
   includes: string[];
   whoFor: string[];
   process: string[];
+  cardHeadline: string;
+  cardDescription: string;
+  cardBullets: string[];
+  featured?: boolean;
+  cardCta: string;
   faqs: { question: string; answer: string }[];
 };
 
@@ -17,12 +22,21 @@ export const servicePages: ServicePage[] = [
   {
     slug: "employment-tribunal-prevention",
     title: "Employment Tribunal Prevention",
-    hero: "Reduce tribunal risk before claims become expensive.",
+    hero: "Practical employment risk work for SMEs that want to avoid disputes escalating into claims.",
     problem:
       "Most employers face tribunal risk from inconsistent contracts, weak process records, and reactive dispute handling.",
     includes: ["Contract and policy risk scan", "High-risk clause remediation priorities", "Manager escalation guidance"],
     whoFor: ["SMEs with active people-management pressure", "Leadership teams wanting predictable risk controls"],
     process: ["Discovery and document intake", "Risk scoring against a 12-point framework", "Action plan and implementation support"],
+    cardHeadline: "Prevent costly tribunal claims before they start",
+    cardDescription: "Practical employment risk work for SMEs that want to avoid disputes escalating into claims.",
+    cardBullets: [
+      "Contract and policy risk review",
+      "Disciplinary and grievance process alignment",
+      "Manager escalation framework",
+    ],
+    featured: true,
+    cardCta: "View service →",
     faqs: [
       { question: "Is this legal representation?", answer: "No. We provide commercial advisory support and highlight where solicitor-led representation is needed." },
       { question: "How quickly can we start?", answer: "Most engagements begin within one week of scope confirmation." },
@@ -31,11 +45,19 @@ export const servicePages: ServicePage[] = [
   {
     slug: "hr-compliance-review",
     title: "HR Compliance Review",
-    hero: "Build a practical compliance baseline for a growing SME workforce.",
+    hero: "A focused review of your contracts, policies, and processes with clear, prioritised actions.",
     problem: "Growth often outpaces HR documentation, creating hidden exposure across contracts, handbook wording, and manager execution.",
     includes: ["Contract consistency check", "Policy incorporation and hierarchy review", "Priority remediation roadmap"],
     whoFor: ["SMEs scaling headcount", "Operations and HR leaders preparing for audit or investment scrutiny"],
     process: ["Current-state assessment", "Gap and exposure scoring", "Prioritised implementation sprint"],
+    cardHeadline: "Find and fix hidden HR compliance risks",
+    cardDescription: "A focused review of your contracts, policies, and processes with clear, prioritised actions.",
+    cardBullets: [
+      "Full documentation audit",
+      "Policy and contract gap analysis",
+      "Action plan for remediation",
+    ],
+    cardCta: "View service →",
     faqs: [
       { question: "Can you work with our existing HR team?", answer: "Yes. We slot into existing teams and provide specialist risk clarity." },
       { question: "Do you rewrite all policies?", answer: "Only where needed. We focus on high-impact remediation first." },
@@ -44,11 +66,19 @@ export const servicePages: ServicePage[] = [
   {
     slug: "workplace-dispute-advisory",
     title: "Workplace Dispute Advisory",
-    hero: "Manage workplace disputes with commercial control and lower legal downside.",
+    hero: "Measured, commercially focused support for handling disputes before they become expensive.",
     problem: "Disputes escalate quickly when process discipline and documentation quality are inconsistent.",
     includes: ["Dispute triage and response strategy", "Evidence and chronology structuring", "Settlement and escalation risk support"],
     whoFor: ["Employers handling active grievances or conflict", "Leaders needing rapid decision support"],
     process: ["Rapid intake call", "Risk-position memo", "Decision support through resolution stage"],
+    cardHeadline: "Resolve employee issues without unnecessary escalation",
+    cardDescription: "Measured, commercially focused support for handling disputes before they become expensive.",
+    cardBullets: [
+      "Guidance on live employee issues",
+      "Investigation and documentation support",
+      "Outcome strategy and risk positioning",
+    ],
+    cardCta: "View service →",
     faqs: [
       { question: "Can this run alongside external solicitors?", answer: "Yes. We complement legal counsel with commercial risk structuring." },
       { question: "Is this only for serious disputes?", answer: "No. Early intervention is often where value is highest." },
@@ -57,11 +87,19 @@ export const servicePages: ServicePage[] = [
   {
     slug: "redundancy-procedure-advice",
     title: "Redundancy Procedure Advice",
-    hero: "Plan and run redundancy processes with stronger fairness and defensibility.",
+    hero: "Clear procedural guidance to reduce legal risk and support defensible decision-making.",
     problem: "Redundancy projects fail when consultation, scoring, and communication standards are not tightly managed.",
     includes: ["Redundancy process map", "Documentation and consultation templates", "Manager briefing for risk-sensitive meetings"],
     whoFor: ["SMEs restructuring teams", "Leaders preparing role reductions"],
     process: ["Scope and risk review", "Procedure design and communications", "Live support during consultation"],
+    cardHeadline: "Run redundancy processes with confidence and control",
+    cardDescription: "Clear procedural guidance to reduce legal risk and support defensible decision-making.",
+    cardBullets: [
+      "Process design and planning",
+      "Documentation and consultation guidance",
+      "Support through live restructuring",
+    ],
+    cardCta: "View service →",
     faqs: [
       { question: "Can you support group consultation planning?", answer: "Yes, we can help structure the process and evidence trail." },
       { question: "What if we already started the process?", answer: "We can assess current position and stabilise the remaining stages." },
