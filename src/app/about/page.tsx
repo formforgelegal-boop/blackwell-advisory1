@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+
+const aboutHeroImage =
+  "https://images.unsplash.com/photo-1723548238753-b62f06344047?auto=format&fit=crop&w=2200&q=80";
+
 export const metadata: Metadata = {
   title: "About",
   description:
@@ -16,10 +20,19 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="border-b border-line pt-28 pb-24">
-        <div className="mx-auto max-w-[980px] px-6 text-center">
-          <h1 className="font-serif text-5xl text-ink md:text-6xl">About the Founder</h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-ink/70">
+      <section className="relative isolate overflow-hidden border-b border-line pt-28 pb-24">
+        <Image
+          src={aboutHeroImage}
+          alt="Lichfield Cathedral and townscape"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/55" aria-hidden="true" />
+        <div className="relative mx-auto max-w-[980px] px-6 text-center">
+          <h1 className="font-serif text-5xl text-white md:text-6xl">About the Founder</h1>
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-white/88">
             Connor Griffiths is the Founder of Blackwell Advisory, a legal consultancy focused on practical legal guidance for businesses navigating employment, company,
             and transactional matters.
           </p>
