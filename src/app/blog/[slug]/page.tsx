@@ -19,6 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return {};
 
   const url = `${SITE_URL}/blog/${post.slug}`;
+  const keywords = [post.primaryKeyword, ...(post.secondaryKeywords ?? [])].filter((keyword): keyword is string => Boolean(keyword));
+
   return {
     title: post.metaTitle ?? post.title,
     description: post.metaDescription,
@@ -31,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: post.publishedAt,
     },
     twitter: { card: "summary_large_image", title: post.metaTitle ?? post.title, description: post.metaDescription },
-    keywords: [post.primaryKeyword, ...(post.secondaryKeywords ?? [])].filter(Boolean),
+    keywords,
   };
 }
 
