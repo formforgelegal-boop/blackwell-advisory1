@@ -214,18 +214,27 @@ export default function HomePage() {
             <h2 className="font-serif text-4xl text-ink md:text-5xl">
               Latest Insights
             </h2>
-            <Link href="/blog" className="text-sm text-ink/65 transition-colors hover:text-ink">
+            <Link
+              href="/blog"
+              className="text-sm text-ink/65 transition-colors hover:text-ink"
+            >
               Knowledge hub →
             </Link>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             {latest.map((post) => (
-              <article key={post.slug} className="rounded-md border border-line bg-[#fbfaf8] p-8 transition-colors duration-200 hover:border-ink/20 hover:bg-white">
+              <article
+                key={post.slug}
+                className="rounded-md border border-line bg-[#fbfaf8] p-8 transition-colors duration-200 hover:border-ink/20 hover:bg-white"
+              >
                 <p className="text-xs uppercase tracking-[0.14em] text-ink/45">
                   {new Date(post.publishedAt).toLocaleDateString("en-GB")}
                 </p>
                 <h3 className="mt-4 font-serif text-3xl leading-tight text-ink">
-                  <Link href={`/blog/${post.slug}`} className="transition-colors hover:text-accent">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="transition-colors hover:text-accent"
+                  >
                     {post.title}
                   </Link>
                 </h3>
