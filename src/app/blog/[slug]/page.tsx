@@ -20,17 +20,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const url = `${SITE_URL}/blog/${post.slug}`;
   return {
-    title: post.title,
+    title: post.metaTitle ?? post.title,
     description: post.metaDescription,
     alternates: { canonical: url },
     openGraph: {
-      title: post.title,
+      title: post.metaTitle ?? post.title,
       description: post.metaDescription,
       type: "article",
       url,
       publishedTime: post.publishedAt,
     },
-    twitter: { card: "summary_large_image", title: post.title, description: post.metaDescription },
+    twitter: { card: "summary_large_image", title: post.metaTitle ?? post.title, description: post.metaDescription },
+    keywords: [post.primaryKeyword, ...(post.secondaryKeywords ?? [])].filter(Boolean),
   };
 }
 
@@ -91,11 +92,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               ))}
             </div>
 
+            {post.faqs && <FAQSection faqs={post.faqs} />}
+
             <div className="my-12">
               <PrimaryCTA title="Need clarity on your current risk position?" description="Book a short call and we’ll outline practical next steps for your business." />
             </div>
-
-            {post.faqs && <FAQSection faqs={post.faqs} />}
 
             <section className="mt-12">
               <h2 className="font-serif text-3xl font-bold text-ink mb-5">Related articles</h2>
