@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllPosts } from "@/data/blog";
+import { caseStudies } from "@/data/caseStudies";
 
 export const metadata: Metadata = {
   title: "Employment Advisory for UK SMEs",
@@ -257,25 +258,26 @@ export default function HomePage() {
               View all case studies →
             </Link>
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            <article className="rounded-md border border-line bg-[#fbfaf8] p-8 transition-colors duration-200 hover:border-ink/20 hover:bg-white">
-              <p className="text-xs uppercase tracking-[0.14em] text-ink/50">
-                Manufacturing
-              </p>
-              <h3 className="mt-4 font-serif text-3xl leading-tight text-ink">
-                Restructuring support that reduced litigation exposure before
-                consultation.
-              </h3>
-            </article>
-            <article className="rounded-md border border-line bg-[#fbfaf8] p-8 transition-colors duration-200 hover:border-ink/20 hover:bg-white">
-              <p className="text-xs uppercase tracking-[0.14em] text-ink/50">
-                Professional Services
-              </p>
-              <h3 className="mt-4 font-serif text-3xl leading-tight text-ink">
-                Policy and contract redesign aligned leadership decisions across
-                two offices.
-              </h3>
-            </article>
+          <div className="grid gap-4 md:grid-cols-3">
+            {caseStudies.map((study) => (
+              <article key={study.slug} className="group overflow-hidden rounded-md border border-line bg-white transition-all duration-200 hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_10px_24px_rgba(15,23,42,0.08)]">
+                <div className="relative aspect-[16/10]">
+                  <Image
+                    src={study.heroImage}
+                    alt={study.clientLabel}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                </div>
+                <div className="p-6">
+                  <p className="text-xs uppercase tracking-[0.14em] text-ink/50">{study.sector}</p>
+                  <h3 className="mt-3 font-serif text-3xl leading-tight text-ink">{study.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink/70">{study.summary}</p>
+                  <Link href={`/case-studies/${study.slug}`} className="mt-4 inline-block text-sm text-ink/70 hover:text-ink">Read case study →</Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
