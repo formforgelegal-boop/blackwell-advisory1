@@ -32,8 +32,8 @@ export default function CaseStudiesPage() {
             >
               <div className="relative aspect-[16/10] overflow-hidden border-b border-line/80 bg-stone">
                 <Image
-                  src={item.heroImage}
-                  alt={item.clientLabel}
+                  src={item.image}
+                  alt={item.label}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
@@ -41,7 +41,7 @@ export default function CaseStudiesPage() {
               </div>
 
               <div className="flex h-full flex-col p-6">
-                <p className="text-[0.68rem] uppercase tracking-[0.13em] text-ink/55">{item.clientLabel}</p>
+                <p className="text-[0.68rem] uppercase tracking-[0.13em] text-ink/55">{item.label}</p>
                 <h2 className="mt-3 font-serif text-[1.8rem] leading-tight text-ink">{item.title}</h2>
                 <p className="mt-4 text-sm leading-relaxed text-ink/70">{item.summary}</p>
 

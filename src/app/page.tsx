@@ -263,15 +263,15 @@ export default function HomePage() {
               <article key={study.slug} className="group overflow-hidden rounded-md border border-line bg-white transition-all duration-200 hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-[0_10px_24px_rgba(15,23,42,0.08)]">
                 <div className="relative aspect-[16/10]">
                   <Image
-                    src={study.heroImage}
-                    alt={study.clientLabel}
+                    src={study.image}
+                    alt={study.label}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   />
                 </div>
                 <div className="p-6">
-                  <p className="text-xs uppercase tracking-[0.14em] text-ink/50">{study.sector}</p>
+                  <p className="text-xs uppercase tracking-[0.14em] text-ink/50">{study.label}</p>
                   <h3 className="mt-3 font-serif text-3xl leading-tight text-ink">{study.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink/70">{study.summary}</p>
                   <Link href={`/case-studies/${study.slug}`} className="mt-4 inline-block text-sm text-ink/70 hover:text-ink">Read case study →</Link>

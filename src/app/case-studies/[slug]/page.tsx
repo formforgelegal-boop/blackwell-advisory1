@@ -47,9 +47,9 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
         <section className="mt-5 overflow-hidden rounded-xl border border-line bg-stone/40">
           <div className="grid items-stretch lg:grid-cols-[1.15fr_0.85fr]">
             <div className="p-8 md:p-10">
-              <p className="text-[0.72rem] uppercase tracking-[0.14em] text-ink/55">Case study · {study.clientLabel}</p>
+              <p className="text-[0.72rem] uppercase tracking-[0.14em] text-ink/55">Case study · {study.label}</p>
               <h1 className="mt-4 font-serif text-4xl leading-tight text-ink md:text-5xl">{study.title}</h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink/75">{study.executiveSummary}</p>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink/75">{study.summary}</p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-3">
                 {study.keyResults.map((result) => (
@@ -62,8 +62,8 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
 
             <div className="relative min-h-[280px] border-t border-line lg:min-h-full lg:border-l lg:border-t-0">
               <Image
-                src={study.heroImage}
-                alt={study.clientLabel}
+                src={study.image}
+                alt={study.label}
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"
@@ -87,16 +87,14 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
             <section>
               <h2 className="font-serif text-3xl text-ink">Problem</h2>
               <div className="mt-4 space-y-3">
-                {study.problem.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
+                <p>{study.problem}</p>
               </div>
             </section>
 
             <section>
               <h2 className="font-serif text-3xl text-ink">What we did</h2>
               <ul className="mt-4 list-disc space-y-2 pl-6">
-                {study.whatWeDid.map((item) => (
+                {study.actions.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
@@ -105,9 +103,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
             <section>
               <h2 className="font-serif text-3xl text-ink">Outcome</h2>
               <div className="mt-4 space-y-3">
-                {study.outcome.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
+                <p>{study.outcome}</p>
               </div>
             </section>
 
@@ -147,7 +143,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
         </section>
 
         <div className="mt-14">
-          <PrimaryCTA title="Need a similarly structured risk reset?" description="Book a focused conversation and we will map practical next steps for your team and current exposure profile." />
+          <PrimaryCTA title={study.cta} description="Book a focused conversation and we will map practical next steps for your team and current exposure profile." />
         </div>
       </div>
     </article>

@@ -1,17 +1,16 @@
 export type CaseStudy = {
   slug: string;
   title: string;
-  clientLabel: string;
-  sector: string;
+  label: string;
   summary: string;
-  executiveSummary: string;
-  heroImage: string;
+  image: string;
   keyResults: string[];
   clientContext: string[];
-  problem: string[];
-  whatWeDid: string[];
-  outcome: string[];
+  problem: string;
+  actions: string[];
+  outcome: string;
   commercialImpact: string[];
+  cta: string;
   relatedServices: string[];
   relatedPosts: string[];
 };
@@ -19,126 +18,127 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "multi-site-retail-tribunal-risk-reset",
-    title: "Retail employer stabilised employee relations risk across four sites",
-    clientLabel: "Anonymised UK Retail Employer · 120 staff",
-    sector: "Retail operations",
+    title: "Reducing tribunal exposure across a four-site retail operation",
+    label: "Anonymised UK retail employer · 120 staff",
     summary:
-      "A fast-growing retail employer with inconsistent people processes engaged Blackwell Advisory to improve tribunal readiness, tighten documentation standards, and restore leadership confidence.",
-    executiveSummary:
-      "Over a focused 12-week advisory programme, the business moved from reactive dispute handling to a consistent, manager-led process model across all locations.",
-    heroImage:
+      "A growing retail employer faced inconsistent contracts and ad-hoc disciplinary handling across multiple sites, creating active disputes and significant settlement risk.",
+    image:
       "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1600&q=80",
     keyResults: [
-      "4 sites moved onto one disciplinary and grievance operating standard",
-      "2 live disputes resolved on controlled commercial terms",
-      "Estimated £65k downside avoided across projected dispute scenarios",
+      "£65k downside avoided",
+      "2 disputes resolved",
+      "4-site framework standardised",
     ],
     clientContext: [
-      "The client operated multiple customer-facing sites with different local management practices and legacy documentation.",
-      "Rapid hiring had outpaced governance, creating variation in contracts, warning standards, and escalation quality.",
+      "UK retail employer",
+      "4 locations",
+      "~120 staff",
+      "Customer-facing workforce with inconsistent management practices",
     ],
-    problem: [
-      "Leadership faced two active disputes and had limited confidence in whether records would stand up under scrutiny.",
-      "Policies existed, but process execution varied materially between locations, increasing unfairness and inconsistency risk.",
+    problem:
+      "The business had inconsistent contracts, no standardised disciplinary process, and weak documentation. Two active disputes had already escalated, and leadership had low confidence in defending future claims.",
+    actions: [
+      "Conducted contract and policy gap analysis across all sites",
+      "Identified high-risk clauses and inconsistent practices",
+      "Introduced standardised disciplinary and grievance framework",
+      "Built manager escalation playbook",
+      "Prioritised remediation for high-risk teams",
+      "Supported leadership on live disputes",
     ],
-    whatWeDid: [
-      "Ran a targeted contract and policy gap assessment against a structured tribunal risk framework.",
-      "Introduced a practical escalation playbook for disciplinaries and grievances with clear stage-gates.",
-      "Prioritised high-risk clause remediation and evidence standards for line managers in customer-facing teams.",
-    ],
-    outcome: [
-      "The business established a single process baseline across all sites and improved consistency in decision records.",
-      "Management teams gained confidence in handling sensitive employee issues without defaulting to reactive settlement pressure.",
-    ],
+    outcome:
+      "A consistent employment framework was implemented across all locations, improving evidence quality and decision-making. Both active disputes were resolved with controlled commercial outcomes.",
     commercialImpact: [
-      "Reduced management time spent firefighting process disputes.",
-      "Improved negotiating position in active matters through stronger documentation discipline.",
-      "Created a repeatable governance model for future expansion.",
+      "Estimated £65k downside avoided",
+      "Reduced likelihood of tribunal escalation",
+      "Improved management confidence across sites",
     ],
+    cta: "Reduce tribunal risk before issues escalate →",
     relatedServices: ["/employment-tribunal-prevention", "/workplace-dispute-advisory"],
-    relatedPosts: ["average-cost-of-an-employment-tribunal-in-the-uk", "documents-employers-need-to-reduce-tribunal-risk"],
+    relatedPosts: [
+      "average-cost-of-an-employment-tribunal-in-the-uk",
+      "documents-employers-need-to-reduce-tribunal-risk",
+    ],
   },
   {
     slug: "engineering-sme-dismissal-process-overhaul",
-    title: "Engineering SME rebuilt dismissal process ahead of restructure",
-    clientLabel: "Anonymised Engineering SME · 75 staff",
-    sector: "Engineering and manufacturing",
+    title: "Rebuilding dismissal process before a restructuring programme",
+    label: "Anonymised engineering SME · 75 staff",
     summary:
-      "Before implementing role changes, an engineering SME needed a defensible dismissal framework that managers could execute consistently under operational pressure.",
-    executiveSummary:
-      "Blackwell Advisory redesigned the practical dismissal workflow, introduced evidence standards, and supported leadership through a sensitive restructuring phase.",
-    heroImage:
+      "An engineering SME preparing for role exits lacked consistent investigation and decision-making processes, creating legal risk ahead of a planned restructure.",
+    image:
       "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1600&q=80",
     keyResults: [
-      "Documented stage-gates introduced for investigation, hearing, and appeal",
-      "Manager decision-letter quality standardised before restructure activity",
-      "Restructure process completed with materially lower procedural risk",
+      "Process standardised before restructure",
+      "Documentation quality improved",
+      "Reduced unfair dismissal risk",
     ],
     clientContext: [
-      "The business was preparing for role redesign and selective exits due to operational and demand changes.",
-      "Leadership wanted to act decisively while avoiding unnecessary claim exposure during a high-sensitivity period.",
+      "UK engineering SME",
+      "~75 staff",
+      "Operationally complex roles",
+      "Planned restructuring",
     ],
-    problem: [
-      "There was no consistent investigation template, hearing structure, or written outcome standard.",
-      "Managers were making people decisions in different ways, creating inconsistency and avoidable legal vulnerability.",
+    problem:
+      "The business intended to exit roles but had no consistent investigation framework, unclear documentation standards, and informal decision-making, creating high risk of unfair dismissal claims.",
+    actions: [
+      "Designed structured investigation framework",
+      "Introduced documentation standards",
+      "Built evidence-gathering and decision-making process",
+      "Worked directly with leadership on live cases",
+      "Provided practical manager guidance",
     ],
-    whatWeDid: [
-      "Mapped existing practices against common unfair dismissal failure points in SME tribunals.",
-      "Implemented concise process controls for investigation scope, hearing documentation, and appeal integrity.",
-      "Delivered decision support for managers handling difficult conversations and high-impact outcomes.",
-    ],
-    outcome: [
-      "Leadership executed planned actions with stronger procedural discipline and clearer supporting records.",
-      "The business moved from ad-hoc management judgement to a repeatable process that aligned legal risk and operational reality.",
-    ],
+    outcome:
+      "Dismissal processes were aligned to a consistent and defensible standard, allowing leadership to proceed with restructuring confidently.",
     commercialImpact: [
-      "Reduced probability of avoidable procedural claims during restructuring.",
-      "Protected leadership time through faster, clearer decision pathways.",
-      "Improved confidence for future capability and conduct decisions.",
+      "Reduced exposure to unfair dismissal claims",
+      "Avoided delays to restructuring",
+      "Lower reactive legal cost risk",
     ],
+    cta: "Planning role exits? Get the process right first →",
     relatedServices: ["/redundancy-procedure-advice", "/employment-tribunal-prevention"],
     relatedPosts: ["how-to-avoid-unfair-dismissal-claims"],
   },
   {
     slug: "professional-services-hr-compliance-foundation",
-    title: "Professional services business built a defensible HR compliance baseline",
-    clientLabel: "Anonymised Professional Services Business · 48 staff",
-    sector: "Professional services",
+    title: "Creating a defensible HR compliance baseline after rapid growth",
+    label: "Anonymised professional services business · 48 staff",
     summary:
-      "A growing professional services firm needed to modernise contracts and policy governance so employee relations decisions could be made with greater clarity and control.",
-    executiveSummary:
-      "Through a structured compliance review and phased implementation plan, Blackwell Advisory helped the firm replace policy drift with an auditable operating rhythm.",
-    heroImage:
+      "A fast-growing firm had outpaced its HR documentation, leaving contracts outdated and policies inconsistent across the business.",
+    image:
       "https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=1600&q=80",
     keyResults: [
-      "Full contract and policy baseline refreshed in a 90-day delivery window",
-      "Quarterly governance cadence introduced with named internal ownership",
-      "Higher confidence in grievance, capability, and conduct decision-making",
+      "Core HR baseline rebuilt",
+      "Contracts and policies standardised",
+      "Reduced compliance risk",
     ],
     clientContext: [
-      "The firm had scaled headcount quickly across advisory teams and support functions.",
-      "Core documentation had not kept pace with growth, leaving different cohorts on mixed contract standards.",
+      "UK professional services firm",
+      "~48 staff",
+      "Rapid growth",
+      "Limited HR infrastructure",
     ],
-    problem: [
-      "Outdated contracts, inconsistent handbook language, and weak review cadence created compounding compliance risk.",
-      "Leadership lacked a clear view of which documentation gaps presented the most immediate legal and commercial exposure.",
+    problem:
+      "Contracts were outdated, policies inconsistent, and expectations unclear. Growth had outpaced internal HR structure, increasing legal and operational risk.",
+    actions: [
+      "Conducted full HR documentation audit",
+      "Identified gaps and inconsistencies",
+      "Rebuilt contracts and core policies",
+      "Standardised documentation across the business",
+      "Provided implementation guidance",
     ],
-    whatWeDid: [
-      "Completed a full compliance checklist audit with priority scoring by legal and operational impact.",
-      "Updated key contracts, policy wording, and procedure references to align with current practice.",
-      "Established a lightweight quarterly review structure to maintain compliance without unnecessary bureaucracy.",
-    ],
-    outcome: [
-      "The business now operates on a coherent contract and policy baseline with clearer internal accountability.",
-      "People decisions are supported by better documentation and more consistent process application.",
-    ],
+    outcome:
+      "A coherent, defensible HR baseline was established, aligning contracts and policies across the business and improving operational clarity.",
     commercialImpact: [
-      "Reduced risk of reactive legal spend from avoidable documentation failures.",
-      "Improved leadership confidence in scaling workforce decisions.",
-      "Created sustainable compliance discipline suitable for continued growth.",
+      "Reduced compliance-related risk",
+      "Improved consistency across teams",
+      "Stronger foundation for scaling",
     ],
+    cta: "Stabilise your HR foundations as you grow →",
     relatedServices: ["/hr-compliance-review", "/workplace-dispute-advisory"],
-    relatedPosts: ["hr-compliance-checklist-for-smes-uk", "documents-employers-need-to-reduce-tribunal-risk"],
+    relatedPosts: [
+      "hr-compliance-checklist-for-smes-uk",
+      "documents-employers-need-to-reduce-tribunal-risk",
+    ],
   },
 ];
 
