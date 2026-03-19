@@ -9,7 +9,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
       <div className="relative aspect-[16/9]">
         <Image
           src={post.featuredImage}
-          alt={post.title}
+          alt={post.featuredImageAlt ?? post.title}
           fill
           sizes="(max-width: 1024px) 100vw, 65vw"
           className="object-cover transition-transform duration-300 group-hover:scale-[1.01]"
