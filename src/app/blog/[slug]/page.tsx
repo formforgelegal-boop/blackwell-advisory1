@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import PrimaryCTA from "@/components/common/PrimaryCTA";
 import FAQSection from "@/components/common/FAQSection";
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: "article",
       url,
       publishedTime: post.publishedAt,
+      images: [{ url: post.featuredImage, alt: post.featuredImageAlt ?? post.title }],
     },
     twitter: { card: "summary_large_image", title: post.metaTitle ?? post.title, description: post.metaDescription },
     keywords,
@@ -75,6 +77,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <p className="text-xs uppercase tracking-widest text-ink/50 mb-3">{categoryLabels[post.category]}</p>
             <h1 className="font-serif text-4xl font-bold text-ink mb-3">{post.title}</h1>
             <p className="text-sm text-ink/50 mb-8">{new Date(post.publishedAt).toLocaleDateString("en-GB")} · {post.readingTime} · By {post.author}</p>
+            <div className="relative mb-10 aspect-[16/9] overflow-hidden rounded-sm border border-line">
+              <Image
+                src={post.featuredImage}
+                alt={post.featuredImageAlt ?? post.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 70vw"
+                className="object-cover"
+                priority
+              />
+            </div>
 
             <div className="space-y-8">
               {post.sections.map((section) => (
@@ -87,6 +99,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     {section.bullets && (
                       <ul className="list-disc pl-6 space-y-1">
                         {section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                      </ul>
+                    )}
+                    {section.links && (
+                      <ul className="list-disc pl-6 space-y-1">
+                        {section.links.map((item) => (
+                          <li key={item.href}>
+                            <Link href={item.href} className="text-accent hover:underline">
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
                       </ul>
                     )}
                   </div>

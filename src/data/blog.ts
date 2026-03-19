@@ -5,6 +5,7 @@ export type BlogSection = {
   heading: string;
   paragraphs: string[];
   bullets?: string[];
+  links?: { href: string; label: string }[];
 };
 
 export type BlogPost = {
@@ -16,6 +17,7 @@ export type BlogPost = {
   category: "employment-tribunal-risk" | "hr-compliance-for-smes" | "redundancy-and-dismissal-procedures" | "settlement-agreements" | "workplace-disputes";
   readingTime: string;
   featuredImage: string;
+  featuredImageAlt?: string;
   metaTitle?: string;
   metaDescription: string;
   primaryKeyword?: string;
@@ -34,6 +36,67 @@ export const categoryLabels: Record<BlogPost["category"], string> = {
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "employment-contracts-uk-smes-guide",
+    title: "Employment Contracts for UK SMEs: The Complete Guide",
+    excerpt:
+      "Most UK SMEs do not have a contract problem; they have a visibility problem. Contracts are often copied from templates, written years ago, or inconsistently applied across staff. On the surface, everything appears fine.",
+    author: "Blackwell Advisory",
+    publishedAt: "2026-03-19",
+    category: "hr-compliance-for-smes",
+    readingTime: "9 min read",
+    featuredImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80",
+    featuredImageAlt: "employment contracts UK SMEs",
+    metaTitle: "Employment Contracts UK SMEs Guide | Blackwell Advisory",
+    metaDescription:
+      "A practical guide to employment contracts for UK SMEs. Learn what to include, avoid legal risk, and protect your business from costly disputes.",
+    primaryKeyword: "Employment Contracts UK SMEs Guide",
+    secondaryKeywords: ["employment contracts UK SMEs", "UK SME employment contract guide"],
+    relatedServices: ["/hr-compliance-review", "/employment-tribunal-prevention"],
+    sections: [
+      {
+        id: "employment-contracts-uk-smes-complete-guide",
+        heading: "Employment Contracts for UK SMEs: The Complete Guide",
+        paragraphs: [
+          "Most UK SMEs do not have a contract problem; they have a visibility problem. Contracts are often copied from templates, written years ago, or inconsistently applied across staff. On the surface, everything appears fine. It is only when a dispute arises that the weaknesses become obvious. At that point, the contract stops being an administrative document and becomes evidence. If it is poorly drafted, incomplete, or outdated, it does not protect the business—it exposes it.",
+          "An employment contract is a legally binding agreement that defines the relationship between employer and employee. It sets out the core terms of employment, including pay, hours, duties, and expectations. Importantly, a contract does not need to be written to exist. A verbal agreement, or even conduct over time, can form a binding contract. That is precisely why written contracts matter. If you do not clearly define the terms, the law will interpret them for you, and that interpretation may not align with how you intended the relationship to operate.",
+          "For SMEs, employment contracts are not just a compliance requirement; they are a risk management tool. Poor contracts tend to create three types of exposure. First, tribunal risk. Many employment tribunal claims stem from unclear or missing contractual terms, particularly around notice, duties, or disciplinary processes. Second, operational issues. If expectations are not clearly defined, managing performance or behaviour becomes inconsistent and harder to justify. Third, commercial risk. Without the right clauses, businesses cannot properly protect client relationships, confidential information, or intellectual property. Contracts either reduce these risks upfront or amplify them later.",
+          "UK law requires employers to provide a written statement of particulars on or before the employee’s first day. This includes basic information such as job title, pay, working hours, holiday entitlement, and notice periods. This is often treated as “the contract,” but in reality it is only the legal minimum. Compliance with this requirement does not mean the business is protected. It simply means the most basic obligations have been met. The difference between minimum compliance and effective protection lies in the additional clauses that most SMEs overlook.",
+          "The clauses that actually protect a business are typically the ones that are either missing or poorly drafted. Restrictive covenants, for example, are intended to prevent employees from taking clients, staff, or sensitive knowledge with them when they leave. However, if they are too broad or not tailored to the role, they are unlikely to be enforceable. Confidentiality and intellectual property clauses are equally important, particularly for businesses that rely on proprietary processes or client data. Without clear ownership provisions, it can be difficult to assert control over work produced during employment. Flexibility clauses are another area where contracts often fall short. Without them, even minor changes to duties, location, or working hours can create legal risk. Finally, termination provisions—notice, garden leave, and post-termination obligations—are frequently underdeveloped, despite being the point at which disputes most often arise.",
+          "A common pattern across SMEs is reliance on generic templates. These documents are designed to be broadly applicable, which means they are rarely specific enough to reflect the risks of a particular business. An engineering firm, a recruitment agency, and a consultancy do not face the same risks, yet they often rely on near-identical contracts. Over time, these templates are modified in isolation, leading to inconsistencies across the workforce. Different employees end up on different terms, which increases the likelihood of disputes and makes it harder to manage situations consistently. Another issue is outdated contracts. Employment law evolves, and so do working practices. A contract written several years ago may no longer reflect either. This is particularly relevant in areas such as flexible working, contractor classification, and evolving statutory rights.",
+          "Misclassification of workers is another area where contracts can create significant exposure. The distinction between employees, workers, and contractors is not determined solely by what the contract says, but the contract is a key piece of evidence. If individuals are incorrectly classified, businesses may face both employment law claims and tax liabilities. Similarly, changing contracts without a clear process can create problems. Employers often assume they can simply issue updated terms, but variations to employment contracts usually require agreement. If handled poorly, this can lead to breach of contract or constructive dismissal claims.",
+          "In practice, SMEs tend to operate with a small number of contract types. Full-time and part-time contracts form the foundation, providing stability and clear rights. Fixed-term contracts are commonly used for project work or temporary cover but must be managed carefully to avoid unfair treatment. Zero-hours contracts offer flexibility but attract scrutiny and require careful handling to avoid misuse. Contractor agreements serve a different purpose entirely and should only be used where the individual is genuinely self-employed. The key is not the number of contract types, but whether each is structured correctly and used in the right context.",
+          "A well-structured employment contract typically follows a clear hierarchy. It begins with the core legal terms required by statute, then builds in commercial protections such as restrictive covenants and confidentiality provisions. It incorporates flexibility where appropriate and references company policies for procedural detail. This structure allows the contract to remain enforceable while still being adaptable. The objective is not to create a document that is as long as possible, but one that is clear, consistent, and aligned with how the business actually operates.",
+          "Most employment disputes are not driven by complex legal arguments. They arise from ambiguity, inconsistency, or poor documentation. A contract that clearly defines expectations, sets out processes, and aligns with day-to-day practice reduces the likelihood of disputes occurring in the first place. If a dispute does arise, it provides a framework for resolving it and a record that can be relied upon if the matter escalates. In that sense, a contract is both a preventative tool and a defensive one.",
+          "There are certain points at which reviewing employment contracts becomes particularly important. Hiring your first employees is an obvious one, but risk tends to increase as the business grows beyond a small team. Changes in structure, expansion into new sectors, or preparation for investment or sale are all moments where contractual clarity becomes more important. In reality, most SMEs would benefit from reviewing their contracts even without a clear trigger. Issues are often hidden until they are tested, and by that stage, the cost of fixing them is significantly higher.",
+          "Employment contracts should not be treated as a one-off task completed at the point of hire. They are a core part of how a business manages risk, people, and operations. When they are drafted properly, they provide clarity, consistency, and protection. When they are not, they tend to fail at the exact moment they are needed most.",
+          "If your contracts are outdated, inconsistent, or based on generic templates, the risk is already there. The only question is whether it becomes visible. Blackwell Advisory works with UK SMEs to review and restructure employment contracts so they reflect how the business actually operates and where the real risks sit."
+        ],
+        links: [
+          { href: "/blog/what-must-be-in-employment-contract-uk", label: "What must be in an employment contract in the UK" },
+          { href: "/blog/how-to-avoid-unfair-dismissal-claims", label: "How to avoid unfair dismissal claims" }
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: "What is the minimum legal requirement for UK employment contracts?",
+        answer: "Employers must provide a written statement of particulars on or before day one, but that baseline alone is not enough to manage wider legal and commercial risk."
+      },
+      {
+        question: "Can SMEs rely on generic contract templates?",
+        answer: "Templates are a starting point only. They are often too broad and can miss role-specific protections such as enforceable restrictive covenants and clear IP ownership."
+      },
+      {
+        question: "Do employment contract changes require employee agreement?",
+        answer: "Usually yes. Contract variations generally require agreement, and poorly handled changes can create breach of contract or constructive dismissal risk."
+      },
+      {
+        question: "When should an SME review employment contracts?",
+        answer: "At minimum during growth phases, structural changes, and pre-investment events, with regular proactive reviews even when no immediate trigger is obvious."
+      }
+    ]
+  },
   {
     slug: "employment-tribunal-process-for-small-uk-businesses",
     title: "Employment Tribunal Process for Small UK Businesses: A Practical Guide",
