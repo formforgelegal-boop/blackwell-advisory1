@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="space-y-1.5">
             <p>Registered office: {COMPANY_DETAILS.registeredOffice}</p>
             <p>Company registration number: {COMPANY_DETAILS.companyNumber}</p>
-            <p>ICO registration: {COMPANY_DETAILS.icoRegistration}</p>
+            {COMPANY_DETAILS.icoRegistration && <p>ICO registration: {COMPANY_DETAILS.icoRegistration}</p>}
             <p>
               Blackwell Advisory is a consultancy, not a law firm. Services do not constitute regulated legal advice.
             </p>

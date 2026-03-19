@@ -13,17 +13,13 @@ type FormData = {
   writtenContracts: string;
   lastReviewed: string;
   tribunalClaims: string;
-  contractors: string;
-  commissionBonuses: string;
-  restrictiveCovenants: string;
-  policiesIncorporated: string;
   whyNow: string;
   preferredContact: string;
   howHeard: string;
   website?: string;
 };
 
-const TOTAL_STEPS = 12;
+const TOTAL_STEPS = 8;
 
 export default function MultiStepForm() {
   const [step, setStep] = useState(0);
@@ -62,17 +58,9 @@ export default function MultiStepForm() {
     } else if (step === 4) {
       valid = await trigger("tribunalClaims");
     } else if (step === 5) {
-      valid = await trigger("contractors");
-    } else if (step === 6) {
-      valid = await trigger("commissionBonuses");
-    } else if (step === 7) {
-      valid = await trigger("restrictiveCovenants");
-    } else if (step === 8) {
-      valid = await trigger("policiesIncorporated");
-    } else if (step === 9) {
       // whyNow is optional
       valid = true;
-    } else if (step === 10) {
+    } else if (step === 6) {
       valid = await trigger("preferredContact");
     } else {
       valid = true;
@@ -389,133 +377,8 @@ export default function MultiStepForm() {
         </div>
       )}
 
-      {/* ── Step 5: Contractors ─── */}
+      {/* ── Step 5: Why now (optional) ─── */}
       {step === 5 && (
-        <div>
-          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
-            Do you use contractors or freelancers alongside employees?
-          </h3>
-          <p className="text-ink/50 text-sm mb-8">Select one.</p>
-          <input
-            type="hidden"
-            {...register("contractors", {
-              required: "Please select an option",
-            })}
-          />
-          <div className="space-y-3">
-            {["Yes", "No", "Planning to"].map((opt) => (
-              <button
-                key={opt}
-                type="button"
-                className={optionBtn}
-                onClick={async () => {
-                  await setOptionAndContinue("contractors", opt);
-                }}
-              >
-                {opt}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* ── Step 6: Commission/bonuses ─── */}
-      {step === 6 && (
-        <div>
-          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
-            Do any staff have commission, bonuses, or non-standard pay
-            structures?
-          </h3>
-          <p className="text-ink/50 text-sm mb-8">Select one.</p>
-          <input
-            type="hidden"
-            {...register("commissionBonuses", {
-              required: "Please select an option",
-            })}
-          />
-          <div className="space-y-3">
-            {["Yes", "No"].map((opt) => (
-              <button
-                key={opt}
-                type="button"
-                className={optionBtn}
-                onClick={async () => {
-                  await setOptionAndContinue("commissionBonuses", opt);
-                }}
-              >
-                {opt}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* ── Step 7: Restrictive covenants ─── */}
-      {step === 7 && (
-        <div>
-          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
-            Do you have restrictive covenants in your contracts?
-          </h3>
-          <p className="text-ink/50 text-sm mb-2">
-            Non-compete or non-solicit clauses.
-          </p>
-          <p className="text-ink/40 text-sm mb-8">Select one.</p>
-          <input
-            type="hidden"
-            {...register("restrictiveCovenants", {
-              required: "Please select an option",
-            })}
-          />
-          <div className="space-y-3">
-            {["Yes", "No", "Not sure"].map((opt) => (
-              <button
-                key={opt}
-                type="button"
-                className={optionBtn}
-                onClick={async () => {
-                  await setOptionAndContinue("restrictiveCovenants", opt);
-                }}
-              >
-                {opt}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* ── Step 8: Policies incorporated ─── */}
-      {step === 8 && (
-        <div>
-          <h3 className="font-serif text-2xl font-bold text-ink mb-2">
-            Are your employment policies referenced or incorporated into your
-            contracts?
-          </h3>
-          <p className="text-ink/50 text-sm mb-8">Select one.</p>
-          <input
-            type="hidden"
-            {...register("policiesIncorporated", {
-              required: "Please select an option",
-            })}
-          />
-          <div className="space-y-3">
-            {["Yes", "No", "Not sure"].map((opt) => (
-              <button
-                key={opt}
-                type="button"
-                className={optionBtn}
-                onClick={async () => {
-                  await setOptionAndContinue("policiesIncorporated", opt);
-                }}
-              >
-                {opt}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* ── Step 9: Why now (optional) ─── */}
-      {step === 9 && (
         <div>
           <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             What is prompting you to look at this now?
@@ -531,8 +394,8 @@ export default function MultiStepForm() {
         </div>
       )}
 
-      {/* ── Step 10: Preferred contact ─── */}
-      {step === 10 && (
+      {/* ── Step 6: Preferred contact ─── */}
+      {step === 6 && (
         <div>
           <h3 className="font-serif text-2xl font-bold text-ink mb-2">
             How would you prefer we contact you?
@@ -561,8 +424,8 @@ export default function MultiStepForm() {
         </div>
       )}
 
-      {/* ── Step 11: How did you hear + submit ─── */}
-      {step === 11 && (
+      {/* ── Step 7: How did you hear + submit ─── */}
+      {step === 7 && (
         <div className="space-y-6">
           <h3 className="font-serif text-2xl font-bold text-ink mb-6">
             One last thing — how did you hear about us?
@@ -600,8 +463,8 @@ export default function MultiStepForm() {
       )}
 
       {/* Navigation buttons (for text-input steps) */}
-      {step !== 11 &&
-        ![1, 2, 3, 4, 5, 6, 7, 8, 10].includes(step) && (
+      {step !== 7 &&
+        ![1, 2, 3, 4, 6].includes(step) && (
           <div className="mt-8">
             <button
               type="button"
