@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
-import { getAllPosts } from "@/data/blog";
+import { categoryLabels, getAllPosts } from "@/data/blog";
 import { caseStudies } from "@/data/caseStudies";
 import { servicePages } from "@/data/services";
 
@@ -34,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
   const staticBlogRoutes = [
     "/blog/what-must-be-in-employment-contract-uk",
+    ...Object.keys(categoryLabels).map((category) => `/blog/category/${category}`),
   ].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified,
