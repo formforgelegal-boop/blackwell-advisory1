@@ -32,6 +32,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
+  const staticBlogRoutes = [
+    "/blog/what-must-be-in-employment-contract-uk",
+  ].map((path) => ({
+    url: `${SITE_URL}${path}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
 
   const caseStudyRoutes = caseStudies.map((study) => ({
     url: `${SITE_URL}/case-studies/${study.slug}`,
@@ -40,5 +48,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...blogRoutes, ...caseStudyRoutes];
+  return [...staticRoutes, ...blogRoutes, ...staticBlogRoutes, ...caseStudyRoutes];
 }

@@ -6,7 +6,14 @@ import MobileCTA from "@/components/MobileCTA";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.blackwelladvisory.co.uk"),
+  metadataBase: new URL("https://blackwell-advisory.org"),
+  alternates: {
+    canonical: "./",
+  },
+  verification: {
+    google:
+      '<meta name="google-site-verification" content="YuMKYaa4N4gcL7lovc2uIop6JEC3nKunGYEDTSyUr9o" />',
+  },
   icons: {
     icon: "/favicon.svg",
   },
@@ -19,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://www.blackwelladvisory.co.uk",
+    url: "https://blackwell-advisory.org",
     siteName: "Blackwell Advisory",
     title: "Blackwell Advisory | Employment Contract Risk Review",
     description:
@@ -39,10 +46,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "Blackwell Advisory",
+    url: "https://blackwell-advisory.org",
+    description: "Employment law and HR advisory for UK SMEs",
+    areaServed: "West Midlands, Staffordshire, UK",
+    serviceType: "Employment Law Advisory",
+  };
 
   return (
     <html lang="en-GB">
       <body className="antialiased font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <Navbar />
         <main className="pb-20 md:pb-0">{children}</main>
         <Footer />

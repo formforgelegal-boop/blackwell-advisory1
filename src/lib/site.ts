@@ -1,4 +1,4 @@
-export const SITE_URL = "https://www.blackwelladvisory.co.uk";
+export const SITE_URL = "https://blackwell-advisory.org";
 
 export const COMPANY_DETAILS = {
   name: "Blackwell Advisory",

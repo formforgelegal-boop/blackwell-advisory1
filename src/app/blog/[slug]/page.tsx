@@ -52,8 +52,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     "@type": "Article",
     headline: post.title,
     datePublished: post.publishedAt,
-    author: { "@type": "Person", name: post.author },
-    publisher: { "@type": "Organization", name: "Blackwell Advisory" },
+    author: { "@type": "Organization", name: "Blackwell Advisory" },
+    url: canonicalUrl,
     mainEntityOfPage: canonicalUrl,
     description: post.metaDescription,
   };
