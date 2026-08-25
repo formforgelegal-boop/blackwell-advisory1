@@ -48,9 +48,14 @@ export default function RootLayout({
     "@type": "ProfessionalService",
     name: "Blackwell Advisory",
     url: "https://blackwell-advisory.org",
-    description: "Employment law and HR advisory for UK SMEs",
+    description: "Blackwell Advisory is an employment and HR consultancy for UK SMEs, not a law firm. Its services do not constitute regulated legal advice.",
     areaServed: "West Midlands, Staffordshire, UK",
-    serviceType: "Employment Law Advisory",
+    serviceType: "Employment and HR Consultancy",
+    founder: {
+      "@type": "Person",
+      name: "Connor Griffiths",
+      jobTitle: "Solicitor",
+    },
   };
 
   return (

@@ -52,7 +52,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     "@type": "Article",
     headline: post.title,
     datePublished: post.publishedAt,
-    author: { "@type": "Organization", name: "Blackwell Advisory" },
+    author: {
+      "@type": "Person",
+      name: "Connor Griffiths",
+      jobTitle: "Solicitor",
+      url: "https://blackwell-advisory.org/about",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Blackwell Advisory",
+      url: "https://blackwell-advisory.org",
+    },
     url: canonicalUrl,
     mainEntityOfPage: canonicalUrl,
     description: post.metaDescription,
