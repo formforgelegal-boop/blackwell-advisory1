@@ -13,7 +13,7 @@ const post = {
   title: "What Must Be in an Employment Contract in the UK?",
   publishedAt: "2026-03-31",
   readingTime: "8 min read",
-  author: "Blackwell Advisory",
+  author: "Connor Griffiths",
   categoryLabel: "HR Compliance for SMEs",
   featuredImage:
     "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=80",
@@ -166,7 +166,17 @@ export default function WhatMustBeInEmploymentContractUKPage() {
     "@type": "Article",
     headline: post.title,
     datePublished: post.publishedAt,
-    author: { "@type": "Organization", name: "Blackwell Advisory" },
+    author: {
+      "@type": "Person",
+      name: "Connor Griffiths",
+      jobTitle: "Solicitor",
+      url: "https://blackwell-advisory.org/about"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Blackwell Advisory",
+      url: "https://blackwell-advisory.org"
+    },
     url: canonicalUrl,
     mainEntityOfPage: canonicalUrl,
     description: post.metaDescription

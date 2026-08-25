@@ -97,12 +97,11 @@ export default function AboutPage() {
           <div className="space-y-5 text-ink/78">
             <h2 className="font-serif text-3xl text-ink md:text-4xl">Founder</h2>
             <p>
-              Connor Griffiths is the Founder of Blackwell Advisory. He holds an LLB from the University of Birmingham and an MSc from the University of Law, with
-              professional affiliations to CILEX and the Law Society.
+              Connor Griffiths is the founder of Blackwell Advisory and a solicitor of England and Wales (SRA No. 821297). He holds an LLB from the University of Birmingham
+              and an MSc from the University of Law.
             </p>
             <p>
-              Before founding Blackwell Advisory, Connor built experience in regional law firms and a Magic Circle firm across employment law, company law, and mergers and
-              acquisitions. He has advised hundreds of businesses, combining rigorous legal standards with practical commercial perspective.
+              Before founding Blackwell Advisory, Connor practised at regional firms and at a Magic Circle firm across employment law, company law, and mergers and acquisitions.
             </p>
             <p className="text-sm uppercase tracking-[0.16em] text-ink/60">Outside work: football and golf.</p>
           </div>
@@ -125,6 +124,16 @@ export default function AboutPage() {
             </div>
             <p className="text-sm text-ink/72">Based in the West Midlands, advising businesses across professional services, construction, technology, and manufacturing.</p>
           </aside>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="mx-auto max-w-[1100px] px-6">
+          <h2 className="font-serif text-3xl text-ink md:text-4xl">Bracton</h2>
+          <p className="mt-5 text-ink/78">
+            Blackwell Advisory also operates <a href="https://bracton.org">Bracton</a>, a UK legal document platform publishing solicitor-drafted templates for landlords,
+            employers and small businesses. Documents on Bracton are reviewed by Blackwell Advisory before publication.
+          </p>
         </div>
       </section>
 
